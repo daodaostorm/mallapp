@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.txt.library.base.BaseActivity;
-import com.txt.library.util.statusbar.StatusBarUtil;
+import com.ran.library.base.BaseActivity;
+import com.ran.library.util.statusbar.StatusBarUtil;
 import com.ran.mall.R;
 import com.ran.mall.config.jpush.TagAliasOperatorHelper;
 import com.ran.mall.entity.bean.UpdateModel;

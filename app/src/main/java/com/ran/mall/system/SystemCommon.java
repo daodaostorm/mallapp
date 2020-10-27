@@ -28,9 +28,9 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.google.gson.Gson;
-import com.txt.library.base.BaseActivity;
-import com.txt.library.base.SystemBase;
-import com.txt.library.base.SystemManager;
+import com.ran.library.base.BaseActivity;
+import com.ran.library.base.SystemBase;
+import com.ran.library.base.SystemManager;
 import com.ran.mall.base.BaseActivity_2;
 import com.ran.mall.entity.bean.DeviceInfoBean;
 import com.ran.mall.entity.bean.PairedBlueToothInfoBean;
@@ -78,6 +78,82 @@ public class SystemCommon extends SystemBase {
 
     public boolean mIsUpload = false;
     public Handler mUploadDeviceStatus = new Handler();
+
+    public static String[][] mDamageType = {
+            {"carDamage", "车损"},
+            {"goodsDamage", "物损"},
+            {"peopleDamage", "人伤"}
+    };
+
+    public static String[][] mSuveryPlace = {
+            {"accident", "事故现场"},
+            {"factory", "修理厂"}
+    };
+
+    public static String getPlaceKey(String strValue) {
+        String returnKey = "";
+
+        if (strValue.equals("") || strValue.equals("请选择")){
+            return returnKey;
+        }
+        for (int index = 0; index< mSuveryPlace.length; index++){
+            if (strValue.equals(SystemCommon.mSuveryPlace[index][1])){
+                returnKey = SystemCommon.mSuveryPlace[index][0];
+                break;
+            }
+        }
+
+        return returnKey;
+    }
+
+    public static String getPlaceValue(String strKey) {
+        String returnValue = "";
+
+        if (strKey.equals("") || strKey.equals("请选择")){
+            return returnValue;
+        }
+        for (int index = 0; index< mSuveryPlace.length; index++){
+            if (strKey.equals(SystemCommon.mSuveryPlace[index][0])){
+                returnValue = SystemCommon.mSuveryPlace[index][1];
+                break;
+            }
+        }
+
+        return returnValue;
+    }
+
+    public static String getDamageKey(String strValue) {
+        String returnKey = "";
+
+        if (strValue.equals("") || strValue.equals("请选择")){
+            return returnKey;
+        }
+        for (int index = 0; index< mDamageType.length; index++){
+            if (strValue.equals(mDamageType[index][1])){
+                returnKey = mDamageType[index][0];
+                break;
+            }
+        }
+
+        return returnKey;
+    }
+
+    public static String getDamageValue(String strKey) {
+        String returnValue = "";
+
+        if (strKey.equals("") || strKey.equals("请选择")){
+            return returnValue;
+        }
+        for (int index = 0; index< mDamageType.length; index++){
+            if (strKey.equals(SystemCommon.mDamageType[index][0])){
+                returnValue = SystemCommon.mDamageType[index][1];
+                break;
+            }
+        }
+
+        return returnValue;
+    }
+
 
     public void startUploadDeviceState() {
         Log.d(TAG, "startUploadDeviceState ");
@@ -127,7 +203,7 @@ public class SystemCommon extends SystemBase {
                 } else {
                     LogUtils.i("UploadDevice Not Paired");
                 }
-                //mUploadDeviceStatus.postDelayed(mUploadDeviceRunnable, 5000); //5秒轮训 上传
+                mUploadDeviceStatus.postDelayed(mUploadDeviceRunnable, 5000); //5秒轮训 上传
             }
         }
     };
@@ -425,9 +501,14 @@ public class SystemCommon extends SystemBase {
     }
 
 
-    public void ShowArtHurtLevelChoose(Context context, String defaultValue, DialogCallBack callBack) {
+    public void ShowSuveyPlaceChoose(Context context, String defaultValue, DialogCallBack callBack) {
 
-        String []stringArray = {"0-10%","11-20%","21-30%","31-40%","41-50%","51-60%","61-70%","71-80%","81-90%","91-100%"};
+        //String []stringArray = {};
+        ArrayList<String> list = new ArrayList<String>();
+        for (int i = 0; i < mSuveryPlace.length; i++){
+            list.add(mSuveryPlace[i][1]);
+        }
+        String []stringArray= list.toArray(new String[list.size()]);
         int checkedItem = 0;
 
         for (int i = 0; i < stringArray.length; i++){
@@ -471,9 +552,76 @@ public class SystemCommon extends SystemBase {
         dialog.show();
     }
 
-    public interface ChooseReasonCallBack {
-        public void onOptionsSelect(String options1, String option2, String options3 , View v);
+    public void ShowDamageNameChoose(Context context, DialogCallBack callBack) {
+
+        //String []stringArray = {"车损","物损","人伤"};
+
+        ArrayList<String> list = new ArrayList<String>();
+        for (int i = 0; i < mDamageType.length; i++){
+            list.add(mDamageType[i][1]);
+        }
+        String []stringArray= list.toArray(new String[list.size()]);
+
+        ArrayList<String> resultArray = new ArrayList<String>();
+
+        ArrayList<String> optionsItems = new ArrayList<>();
+        for (int i = 0; i < stringArray.length; i++) {
+            optionsItems.add(stringArray[i]);
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("");
+        builder.setMultiChoiceItems(stringArray, null, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                Boolean isExist = false;
+                if (isChecked) {
+                    for (int i = 0; i < resultArray.size(); i++) {
+                        if (stringArray[which].equals(resultArray.get(i))) {
+                            isExist = true;
+                            break;
+                        }
+                    }
+                    if (!isExist) {
+                        resultArray.add(stringArray[which]);
+                    }
+                } else {
+                    for (int i = 0; i < resultArray.size(); i++) {
+                        if (stringArray[which].equals(resultArray.get(i))) {
+                            resultArray.remove(i);
+                            break;
+                        }
+                    }
+                }
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                callBack.onConfrim(resultArray);
+            }
+        });
+        AlertDialog dialog = builder.create();
+
+        WindowManager mg = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+
+
+        Window window = dialog.getWindow();
+        window.setGravity(Gravity.BOTTOM);
+        WindowManager.LayoutParams lp = window.getAttributes();
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = mg.getDefaultDisplay().getWidth();
+        window.setAttributes(lp);
+
+        dialog.show();
     }
+
 
 
     //判断网络的连接状态

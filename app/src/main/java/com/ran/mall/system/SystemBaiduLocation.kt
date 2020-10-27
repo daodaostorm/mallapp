@@ -5,7 +5,7 @@ import com.baidu.location.BDAbstractLocationListener
 import com.baidu.location.BDLocation
 import com.baidu.location.Poi
 
-import com.txt.library.base.SystemBase
+import com.ran.library.base.SystemBase
 import com.ran.mall.config.MainApplication
 import com.ran.mall.entity.bean.LocationInfo
 import com.ran.mall.service.LocationService

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:background="@drawable/ripplestate">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ddd"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/report_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:lines="1"
+        android:text="报案号"
+        android:textColor="@color/color_333333"
+        android:textSize="13sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/car_number"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="车牌"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/insure_name"
+        app:layout_constraintLeft_toLeftOf="@+id/report_id" />
+
+    <TextView
+        android:id="@+id/insure_name"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:layout_marginBottom="@dimen/dimen_5dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="被保人"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/report_id" />
+
+    <TextView
+        android:id="@+id/create_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:text="时间"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@+id/car_number"
+        app:layout_constraintLeft_toRightOf="@+id/car_number" />
+
+    <TextView
+        android:id="@+id/address_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:layout_marginRight="@dimen/dimen_15dp"
+        android:text="地点"
+        android:textColor="@color/color_999999"
+        android:textSize="12sp"
+        app:layout_constraintTop_toTopOf="@+id/insure_name"
+        app:layout_constraintLeft_toLeftOf="@+id/create_time" />
+
+</android.support.constraint.ConstraintLayout>

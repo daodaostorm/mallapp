@@ -1,4 +1,4 @@
-package com.txt.library;
+package com.ran.library;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.txt.library.test", appContext.getPackageName());
+        assertEquals("com.ran.library.test", appContext.getPackageName());
     }
 }

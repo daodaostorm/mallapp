@@ -24,6 +24,7 @@ import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.entity.constant.SPConstant;
 import com.ran.mall.system.SystemCommon;
 import com.ran.mall.system.SystemHttpRequest;
+import com.ran.mall.ui.main.MainActivity;
 import com.ran.mall.utils.InfoUtils;
 import com.ran.mall.utils.PreferenceUtils;
 import com.ran.mall.utils.SPUtils;
@@ -174,11 +175,11 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
         runOnUiThread(new Runnable() {
             @Override public void run() {
                 hideLoading();
-                /*PreferenceUtils.setLogin(true);
+                PreferenceUtils.setLogin(true);
 
-                Intent intent = new Intent(LoginActivity.this, SurveyMainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
-                finish();*/
+                finish();
             }
         });
     }

@@ -3,7 +3,7 @@ package com.ran.mall.system;
 import android.text.TextUtils;
 import android.util.Log;
 
-import com.txt.library.base.SystemBase;
+import com.ran.library.base.SystemBase;
 import com.ran.mall.AssessConfig;
 import com.ran.mall.https.HttpRequestClient;
 import com.ran.mall.utils.OcrSign;
@@ -29,36 +29,29 @@ public class SystemHttpRequest extends SystemBase {
     public String IP = "";
     public String port = "";
 
+    public String BUSS_IP = "";
+    public String BUSS_port = "";
 
     private String TAG = SystemHttpRequest.class.getSimpleName();
 
     private String PICC_URL = "/api/lossAss";
 
-    private String DONGSHENG_URL = "http://ssotest.chexinhui.com";
-    private String DONGSHENG_URL_Proj = "http://sso.chexinhui.com";
-
-    private String DONGSHENG_SERVERURL = "https://apiresttest.chexinhui.com";
-    private String DONGSHENG_SERVERURL_Proj = "https://apirest.chexinhui.com";
+    private String MCU_UPGRADE_URL = "http://192.168.10.1/wiced_ota_server";
 
     @Override
     public void init() {
 
     }
 
-    public String getDongSheng_Token_Url() {
+    public String get_Businiess_Url() {
         if (AssessConfig.isShowOut) {
-            return DONGSHENG_URL_Proj;
+            BUSS_IP = AssessConfig.rb_BUSS_IP;
+            BUSS_port = AssessConfig.rb_BUSS_port;
         } else {
-            return DONGSHENG_URL;
+            BUSS_IP = AssessConfig.BUSS_IP;
+            BUSS_port = AssessConfig.BUSS_port;
         }
-    }
-
-    public String getDongSheng_Server_Url() {
-        if (AssessConfig.isShowOut) {
-            return DONGSHENG_SERVERURL_Proj;
-        } else {
-            return DONGSHENG_SERVERURL;
-        }
+        return "https://" + BUSS_IP + ":" + BUSS_port;
     }
 
     public String getUri() {
@@ -122,6 +115,70 @@ public class SystemHttpRequest extends SystemBase {
 
     }
 
+    public void getTaskVideoList(int pageSize, int pageIndex, String reportId, HttpRequestClient.RequestHttpCallBack callback) {
+        String api = "/api/reportVideo";
+        StringBuilder builder = new StringBuilder(getUri());
+        builder.append(api + "?pageSize=" + pageSize);
+        builder.append("&pageIndex=" + pageIndex);
+        builder.append("&reportId=" + reportId);
+        HttpRequestClient.getIntance().get(builder.toString(), callback);
+
+    }
+
+    public void getAllTaskVideoList(int pageSize, int pageIndex, HttpRequestClient.RequestHttpCallBack callback) {
+        String api = "/api/reportVideo";
+        StringBuilder builder = new StringBuilder(getUri());
+        builder.append(api + "?pageSize=" + pageSize);
+        builder.append("&pageIndex=" + pageIndex);
+        HttpRequestClient.getIntance().get(builder.toString(), callback);
+
+    }
+
+    public void getTaskList(String account, int pageSize, int pageIndex, String timeIntervel, HttpRequestClient.RequestHttpCallBack callback) {
+        String api = "/api/report/external/list";
+        StringBuilder builder = new StringBuilder(get_Businiess_Url());
+        builder.append( api + "?searchAgent=" + account);
+        builder.append("&pageSize=" + pageSize);
+        builder.append("&pageIndex=" + pageIndex);
+        builder.append("&ctime=" + timeIntervel);
+        builder.append("&orderBy=ctime&order=desc&searchTenant=5f211d52ba7f4400225bd01c");
+        HttpRequestClient.getIntance().get(builder.toString(), callback);
+    }
+
+
+    public void getRecordMCUUpdateInfo(String versionCode, HttpRequestClient.RequestHttpCallBack callback) {
+
+        getRecordUpdateInfo("record.wifi", versionCode, callback);
+
+    }
+
+    public void getRecordBlueToothUpdateInfo(String versionCode, HttpRequestClient.RequestHttpCallBack callback) {
+
+        getRecordUpdateInfo("record.bluetooth", versionCode, callback);
+
+    }
+
+    public void getRecordUpdateInfo(String packageName, String versionCode, HttpRequestClient.RequestHttpCallBack callback) {
+        String api = getUri() + "/api/upgradeInfo";
+        StringBuilder builder = new StringBuilder("");
+        builder.append( api + "?packageName=" + packageName);
+        builder.append("&versionCode=" + versionCode);
+        HttpRequestClient.getIntance().get(builder.toString(), callback);
+    }
+
+    /**
+     * CreateTask
+     **/
+    public void responseCreateTask(String json, HttpRequestClient.RequestHttpCallBack callback) {
+        String api = "/api/report/external/update";
+        StringBuilder builder = new StringBuilder(get_Businiess_Url());
+        builder.append(api);
+        HttpRequestClient.getIntance().post(builder.toString(), json, "", callback);
+
+    }
+
+
+
     /**
      * 上传
      **/
@@ -131,33 +188,6 @@ public class SystemHttpRequest extends SystemBase {
         builder.append(api);
         HttpRequestClient.getIntance().post(builder.toString(), json, "", callback);
 
-    }
-
-    /**
-     * 埋点
-     *
-     * @param eventId
-     * @param content
-     * @param callback
-     */
-    public void sellingPoints(String eventId, String content, HttpRequestClient.RequestHttpCallBack callback) {
-        JSONObject jsonOb = new JSONObject();
-        JSONObject jsonObject = new JSONObject();
-        try {
-
-            jsonObject.put("eventId", eventId);
-            jsonObject.put("serviceId", "picc:guangdong:production");
-            jsonObject.put("channel", "android");
-            jsonObject.put("content", content);
-            jsonOb.put("cmd", "record");
-            jsonOb.put("msg", jsonObject);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        StringBuilder builder = new StringBuilder("https://52.80.118.247:60400/act");
-        HttpRequestClient.getIntance().post(builder.toString(), jsonOb.toString(), "", callback);
     }
 
 

@@ -1,7 +1,7 @@
 package com.ran.mall.base;
 
-import com.txt.library.base.SystemBase;
-import com.txt.library.base.SystemManager;
+import com.ran.library.base.SystemBase;
+import com.ran.library.base.SystemManager;
 
 /**
  * Created by DELL on 2017/10/20.

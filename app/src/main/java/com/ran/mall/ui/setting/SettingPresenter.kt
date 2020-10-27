@@ -2,7 +2,7 @@ package com.ran.mall.ui.setting
 
 import android.app.Activity
 import android.util.Log
-import com.txt.library.base.SystemManager
+import com.ran.library.base.SystemManager
 import com.ran.mall.R
 import com.ran.mall.utils.ToastUtils
 

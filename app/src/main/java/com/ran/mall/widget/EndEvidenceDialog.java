@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
-import com.txt.library.base.SystemManager;
+import com.ran.library.base.SystemManager;
 import com.ran.mall.R;
 import com.ran.mall.system.SystemCommon;
 

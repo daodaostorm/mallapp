@@ -9,7 +9,7 @@ import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.txt.library.base.SystemBase;
+import com.ran.library.base.SystemBase;
 import com.ran.mall.utils.ApplicationUtils;
 
 import java.io.File;
@@ -126,10 +126,10 @@ public class SystemCrashHandler extends SystemBase implements Thread.UncaughtExc
         if (Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) {// 优先保存到SD卡中
             PATH_LOGCAT = Environment.getExternalStorageDirectory()
-                    .getAbsolutePath() + File.separator + "MallApp";
+                    .getAbsolutePath() + File.separator + "recordapp";
         } else {// 如果SD卡不存在，就保存到本应用的目录下
             PATH_LOGCAT = mContext.getFilesDir().getAbsolutePath()
-                    + File.separator + "MallApp";
+                    + File.separator + "recordapp";
         }
         File file = new File(PATH_LOGCAT);
         if (!file.exists()) {

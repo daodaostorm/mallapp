@@ -139,8 +139,8 @@
 -keep class vi.com.** {*;}
 -dontwarn com.baidu.**
 
--keep class com.txt.library.base.** { *; }
--dontwarn com.txt.library.base.**
+-keep class com.ran.library.base.** { *; }
+-dontwarn com.ran.library.base.**
 
 -keep class com.ran.mall.entity.constant.SPConstant{*;}
 -keep class com.ran.mall.entity.bean.**{*;}

@@ -24,6 +24,7 @@ import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.system.SystemCommon;
 import com.ran.mall.system.SystemHttpRequest;
 import com.ran.mall.system.SystemLogHelper;
+import com.ran.mall.ui.main.MainActivity;
 import com.ran.mall.utils.ApkUtils;
 import com.ran.mall.utils.PreferenceUtils;
 import com.ran.mall.widget.ShowIpControlDialog;
@@ -131,14 +132,10 @@ public class SplashActivity extends BaseActivity_2 implements LoginContract.View
             Log.d(TAG, " no permiss is request");
             getSystem(SystemLogHelper.class).start();
 
-            if (!PreferenceUtils.isLogin()) {
 
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            } else {
-                mLoginPreSenter.requestServerLogin();
-            }
+            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
 
         } else {//请求权限方法
             String[] permissions = mPermissionList.toArray(new String[mPermissionList.size()]);//将List转为数组

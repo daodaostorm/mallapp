@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-import com.txt.library.base.SuperViewHolder
+import com.ran.library.base.SuperViewHolder
 
 import java.util.ArrayList
 

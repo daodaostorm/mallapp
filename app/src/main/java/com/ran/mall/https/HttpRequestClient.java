@@ -3,7 +3,7 @@ package com.ran.mall.https;
 import android.os.Looper;
 import android.util.Log;
 
-import com.txt.library.util.NetUtil;
+import com.ran.library.util.NetUtil;
 import com.ran.mall.config.MainApplication;
 import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.utils.LogUtils;
