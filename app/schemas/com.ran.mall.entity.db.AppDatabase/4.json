@@ -1,0 +1,269 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 4,
+    "identityHash": "78014c66c59afbfb64aa038d0c7b1003",
+    "entities": [
+      {
+        "tableName": "workorder",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userName` TEXT NOT NULL, `flowId` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userName",
+            "columnName": "userName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flowId",
+            "columnName": "flowId",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_workorder_userName",
+            "unique": false,
+            "columnNames": [
+              "userName"
+            ],
+            "createSql": "CREATE  INDEX `index_workorder_userName` ON `${TABLE_NAME}` (`userName`)"
+          },
+          {
+            "name": "index_workorder_flowId",
+            "unique": true,
+            "columnNames": [
+              "flowId"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_workorder_flowId` ON `${TABLE_NAME}` (`flowId`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "photo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `userName` TEXT NOT NULL, `photo_flowId` TEXT NOT NULL, `photo_path` TEXT NOT NULL, `photo_status` TEXT NOT NULL, `photo_source` TEXT NOT NULL, `photo_carnumber` TEXT NOT NULL, `photo_success` TEXT NOT NULL, `photo__id` TEXT NOT NULL, `photo_lossType` TEXT NOT NULL, `photo_systemTime` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "userName",
+            "columnName": "userName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "flowId",
+            "columnName": "photo_flowId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "path",
+            "columnName": "photo_path",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoStatus",
+            "columnName": "photo_status",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoSource",
+            "columnName": "photo_source",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoCarnumber",
+            "columnName": "photo_carnumber",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoSuccess",
+            "columnName": "photo_success",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photo_id",
+            "columnName": "photo__id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photo_lossType",
+            "columnName": "photo_lossType",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoSystemTime",
+            "columnName": "photo_systemTime",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_photo_photo_flowId",
+            "unique": false,
+            "columnNames": [
+              "photo_flowId"
+            ],
+            "createSql": "CREATE  INDEX `index_photo_photo_flowId` ON `${TABLE_NAME}` (`photo_flowId`)"
+          },
+          {
+            "name": "index_photo_photo_systemTime",
+            "unique": false,
+            "columnNames": [
+              "photo_systemTime"
+            ],
+            "createSql": "CREATE  INDEX `index_photo_photo_systemTime` ON `${TABLE_NAME}` (`photo_systemTime`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "historyreport",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `historydiscipline` TEXT NOT NULL, `systemTime` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "historydiscipline",
+            "columnName": "historydiscipline",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "systemTime",
+            "columnName": "systemTime",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_historyreport_systemTime",
+            "unique": false,
+            "columnNames": [
+              "systemTime"
+            ],
+            "createSql": "CREATE  INDEX `index_historyreport_systemTime` ON `${TABLE_NAME}` (`systemTime`)"
+          },
+          {
+            "name": "index_historyreport_historydiscipline",
+            "unique": true,
+            "columnNames": [
+              "historydiscipline"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_historyreport_historydiscipline` ON `${TABLE_NAME}` (`historydiscipline`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "localphoto",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `photo_path` TEXT NOT NULL, `photo_success` TEXT NOT NULL, `photo_source` TEXT NOT NULL, `photo_systemTime` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "path",
+            "columnName": "photo_path",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoSuccess",
+            "columnName": "photo_success",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoSource",
+            "columnName": "photo_source",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "photoSystemTime",
+            "columnName": "photo_systemTime",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_localphoto_photo_path",
+            "unique": false,
+            "columnNames": [
+              "photo_path"
+            ],
+            "createSql": "CREATE  INDEX `index_localphoto_photo_path` ON `${TABLE_NAME}` (`photo_path`)"
+          },
+          {
+            "name": "index_localphoto_photo_systemTime",
+            "unique": false,
+            "columnNames": [
+              "photo_systemTime"
+            ],
+            "createSql": "CREATE  INDEX `index_localphoto_photo_systemTime` ON `${TABLE_NAME}` (`photo_systemTime`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"78014c66c59afbfb64aa038d0c7b1003\")"
+    ]
+  }
+}

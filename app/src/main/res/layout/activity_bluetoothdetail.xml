@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.ran.mall.ui.bluetooth.BluetoothDevicesActivity">
+
+    <View
+        android:id="@+id/divider_top"
+        style="@style/divider_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:id="@+id/device_info_id_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_25"
+        android:paddingRight="@dimen/dimen_25"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_top">
+
+        <TextView
+            android:id="@+id/devicename_tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/bluetooth_detail_device_name"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/devicename_tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimen_30dp"
+            android:gravity="center_vertical"
+            android:text="00:00:00:00:00:00"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_power"
+        style="@style/divider_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/device_info_id_ll" />
+    <LinearLayout
+        android:id="@+id/device_info_power_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_25"
+        android:paddingRight="@dimen/dimen_25"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_power">
+
+        <TextView
+            android:id="@+id/devicepower_tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/bluetooth_detail_device_power"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/devicepower_tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimen_30dp"
+            android:gravity="center_vertical"
+            android:text="20%"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        />
+
+    </LinearLayout>
+    <View
+        android:id="@+id/divider_space"
+        style="@style/divider_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/device_info_power_ll" />
+    <LinearLayout
+        android:id="@+id/device_info_space_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_25"
+        android:paddingRight="@dimen/dimen_25"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_space">
+
+        <TextView
+            android:id="@+id/devicespace_tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/bluetooth_detail_device_store_size"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/devicespace_tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimen_30dp"
+            android:gravity="center_vertical"
+            android:text="55G"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_upload"
+        style="@style/divider_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/device_info_space_ll" />
+    <LinearLayout
+        android:id="@+id/device_info_upload_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:onClick="buttonClick"
+        android:paddingLeft="@dimen/dimen_25"
+        android:paddingRight="@dimen/dimen_25"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_upload">
+
+        <TextView
+            android:id="@+id/upload_tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/bluetooth_detail_device_upload_status"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/upload_tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:gravity="center_vertical"
+            android:text="@string/bluetooth_wifi_not_connected_text"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        <ImageButton
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:src="@drawable/icon_white_right_back"
+            />
+        />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_wifi"
+        style="@style/divider_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/device_info_upload_ll" />
+    <LinearLayout
+        android:id="@+id/device_info_wifi_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:onClick="buttonClick"
+        android:paddingLeft="@dimen/dimen_25"
+        android:paddingRight="@dimen/dimen_25"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_wifi">
+
+        <TextView
+            android:id="@+id/devicewifi_tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/bluetooth_detail_device_wifi_connect"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/devicewifi_tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:gravity="center_vertical"
+            android:text="@string/bluetooth_wifi_not_connected_text"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        <ImageButton
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:src="@drawable/icon_white_right_back"
+            />
+        />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_func_setting"
+        style="@style/divider_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/device_info_wifi_ll" />
+    <LinearLayout
+        android:id="@+id/device_info_func_setting_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_50dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:onClick="buttonClick"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:paddingLeft="@dimen/dimen_25"
+        android:paddingRight="@dimen/dimen_25"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider_func_setting">
+
+        <TextView
+            android:id="@+id/func_setting_tv_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:text="@string/bluetooth_detail_device_func"
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <TextView
+            android:id="@+id/func_setting_tv_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/dimen_20dp"
+            android:gravity="center_vertical"
+            android:text=""
+            android:textColor="@color/color_575757"
+            android:textSize="@dimen/dimen_14sp" />
+        <ImageButton
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:layout_marginRight="@dimen/dimen_10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@null"
+            android:src="@drawable/icon_white_right_back"
+            />
+        />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

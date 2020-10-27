@@ -1,0 +1,600 @@
+<resources>
+    <string name="app_name">服务记录仪</string>
+    <string name="app_name_ud">中华联合</string>
+    <string name="app_name_picc">易定损企业版</string>
+    <string name="hint_input_account">请输入工号</string>
+    <string name="hint_input_pwd">请输入密码</string>
+    <string name="hint_input_car">请输入车牌号</string>
+    <string name="hint_input_report">请输入报案号</string>
+    <string name="hint_input_phone">三者车被保险人手机号码</string>
+    <string name="hint_estimate_input_car">车牌号</string>
+    <string name="hint_estimate_input_vin">VIN码</string>
+    <string name="hint_estimate_input_report">报案号</string>
+    <string name="forget_pwd">忘记密码</string>
+    <string name="login">登录</string>
+    <string name="btn_local_photo">离线拍照</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+
+    <!-- Key fob list item signal strength labels -->
+    <string name="keyfob_signal_strength_weak">Weak Signal</string>
+    <string name="keyfob_signal_strength_average">Average Signal</string>
+    <string name="keyfob_signal_strength_good">Good Signal</string>
+    <string name="keyfob_signal_strength_unknown">Unknown Signal</string>
+    <string name="device_has_disconnected">DEVICE HAS DISCONNECTED</string>
+
+    <!-- silicon labs string arrays -->
+    <string-array name="properties_array">
+        <item>Broadcast</item>
+        <item>Read</item>
+        <item>Write no response</item>
+        <item>Write</item>
+        <item>Notify</item>
+        <item>Indicate</item>
+        <item>Signed write</item>
+        <item>Extended props</item>
+    </string-array>
+    <!-- Beacon types -->
+    <string name="unspecified">Unspecified</string>
+    <string name="ibeacon">iBeacon</string>
+    <string name="eddystone">Eddystone</string>
+    <string name="alt_beacon">AltBeacon</string>
+    <!-- Other -->
+    <string name="unknown">Unknown</string>
+    <string name="hex">Hex</string>
+    <string name="ascii">ASCII</string>
+    <string name="decimal">Decimal</string>
+    <string name="unknown_service">Unknown service</string>
+    <string name="debug_mode_connection_failed_snackbar">"Failed connecting to %1$s"</string>
+
+    <!--  MallApp -->
+    <string name="mainlist_title">服务记录仪</string>
+    <string name="login_logo">智能在线理赔企业版</string>
+    <string name="bluetooth_connect_device_title">连接设备</string>
+    <string name="bluetooth_device_search">搜索中,请稍后</string>
+    <string name="bluetooth_notice_longpress_message">请长按按钮,直到指示灯出现红灯闪烁,进入下一步</string>
+    <string name="bluetooth_connect_next">下一步</string>
+    <string name="mainlist_empty_connect_device_text">没有连接设备</string>
+    <string name="mainlist_add_new_devices">添加新设备</string>
+    <string name="bluetooth_detail_back">返回</string>
+    <string name="bluetooth_connect_cancel">取消</string>
+    <string name="bluetooth_search_result_text">找到以下设备</string>
+    <string name="bluetooth_device_details_title">设备详情</string>
+    <string name="bluetooth_device_name">设备名称:</string>
+    <string name="bluetooth_device_id">设备ID:</string>
+    <string name="bluetooth_detail_device_name">设备ID</string>
+    <string name="bluetooth_detail_device_power">剩余电量</string>
+    <string name="bluetooth_detail_device_store_size">剩余空间</string>
+    <string name="bluetooth_detail_device_wifi_connect">WIFI网络连接</string>
+    <string name="bluetooth_detail_device_upload_status">上传状态</string>
+    <string name="bluetooth_detail_device_func">功能设置</string>
+    <string name="bluetooth_detail_starttime">开始时间</string>
+    <string name="bluetooth_detail_endtime">结束时间</string>
+    <string name="bluetooth_wifi_connected_text">已连接</string>
+    <string name="bluetooth_wifi_not_connected_text">未连接</string>
+    <string name="bluetooth_device_uploaded">已上传</string>
+    <string name="bluetooth_device_not_uploaded">未上传</string>
+    <string name="bluetooth_detail_back_notice_message">点击返回后,若处于录制状态依然会保持录制</string>
+    <string name="bluetooth_detail_start_video">开始录像</string>
+    <string name="bluetooth_detail_end_video">结束录像</string>
+    <string name="wifi_list_info_text">可用WIFI列表</string>
+    <string name="wifi_connect_title">WIFI网络连接</string>
+    <string name="survey_main_title">现场查勘端</string>
+
+    <string name="reportinfo_reportid">报案号</string>
+    <string name="reportinfo_time">报案时间</string>
+    <string name="reportinfo_address">事故地点</string>
+    <string name="reportinfo_remark">事故经过</string>
+    <string name="reportinfo_carnumber">车牌号</string>
+    <string name="reportinfo_name">被保险人</string>
+    <string name="reportinfo_connect_text">"点我去连接>"</string>
+    <string name="reportinfo_not_connect_status_text">记录仪未连接!</string>
+    <string name="reportinfo_connect_status_text">记录仪连接成功!</string>
+
+    <string name="wait_message">敬请期待</string>
+    <string name="settings_video_device">服务记录仪</string>
+    <string name="device_connected_text">已连接</string>
+    <string name="device_not_connected_text">未连接</string>
+
+    <string name="bluetooth_device_settings_title">记录仪设置</string>
+    <string name="bluetooth_device_settings_auto_upload_text">充电时自动上传</string>
+
+    <string name="video_list_title">录像列表</string>
+
+    <string name="report_sheet">车险理赔E端</string>
+    <string name="start_check">发起查勘</string>
+    <string name="exit_application">再按一次返回退出程序</string>
+    <string name="tip">提示</string>
+    <string name="add_survey">发起查勘</string>
+    <string name="start_estimate">发起估损</string>
+    <string name="end_txt">确认取证完成并提交结果？</string>
+    <string name="submit">提交</string>
+    <string name="title_edit_report">报案号*</string>
+    <string name="title_edit_car">"标的车牌号 "</string>
+    <string name="title_edit_input_report">"报 案 号 "</string>
+    <string name="title_edit_phone">"手 机 号 "</string>
+    <string name="title_edit_tasktype">任务类型</string>
+    <string name="title_edit_tasktype_video_text">案件类型</string>
+    <string name="title_edit_tasktype_video_l">大案</string>
+    <string name="title_edit_tasktype_video_s">小案</string>
+    <string name="title_err_report">请输入报案号</string>
+    <string name="tasktype_dingsun_text">定损</string>
+    <string name="tasktype_dingsun_text_show">"定损  "</string>
+    <string name="tasktype_danzheng_text">单证收集</string>
+    <string name="title_err_car">请输入车牌号</string>
+    <string name="title_carnumber_not_match_error">"车牌号和报案号不匹配\n请核对输入的车牌号或报案号正确!"</string>
+    <string name="title_notice_message">请输入任一项</string>
+
+    <string name="hint">为保证照片质量，请翻转手机，横屏拍照！</string>>
+    <string name="loading_login">正在登录...</string>
+    <string name="tip_input_account">请输入账号</string>
+    <string name="tip_input_password">请输入密码</string>
+    <string name="login_fail">登录失败，请重新登录</string>
+    <string name="request_fail">获取列表失败</string>
+    <string name="survey_carnumber_report_no_empty">输入的车牌号和报案号不能同时为空</string>
+
+    <string name="status_untreated">未完成</string>
+    <string name="status_tbc">待审核</string>
+    <string name="status_checked">已定损</string>
+    <string name="status_offline">转线下</string>
+    <string name="status_evidenced">已取证</string>
+    <string name="status_received">已接收</string>
+
+    <string name="login_err">工号或者密码错误</string>
+    <string name="report_checked">定损已完成</string>
+    <string name="no_survey">暂无报案单</string>
+    <string name="no_service_online">当前没有定损员在线，请咨询95518</string>
+
+    <string name="match_father_id_text">请匹配母账号！</string>
+    <string name="matched_father_text">母账号</string>
+
+    <string name="no_service">没有找到对应的报案单</string>
+
+    <string name="network_err">当前网络不可用，请检查您的网络</string>
+
+
+    <string name="data_err_reload">连接超时\n是否重新加载</string>
+
+    <string name="seesion_end">会话结束</string>
+
+    <string name="disagreen">不同意</string>
+
+
+    <string name="termaintedMsg_1">对方无法连接</string>
+
+    <string name="termaintedMsg_2">对方已挂断</string>
+
+    <string name="termaintedMsg_3">用户已挂断</string>
+
+    <string name="termaintedMsg_4">无法接听</string>
+
+    <string name="termaintedMsg_5">对方不在线</string>
+
+    <string name="termaintedMsg_6">运营商暂不支持该功能</string>
+
+    <string name="termaintedMsg_7">对方已挂断</string>
+    <string name="termaintedMsg_8">通讯已挂断</string>
+    <string name="termaintedMsg_9">通讯已挂断</string>
+    <string name="termaintedMsg_10">视频已挂断</string>
+
+    <string name="network_show_toast">当前网络不可用，请检查您的网络</string>
+    <string name="app_update">版本更新</string>
+    <string name="update_file_size">%1$sM / %2$sM</string>
+
+    <string name="toast_1">排队中\n客服马上为您服务</string>
+
+    <string name="report_toast_1">视频过程中请按照定损员指引拍照\n请允许地理位置、摄像头和麦克风权限</string>
+
+    <string name="screenshot_fail">拍照失败，请重试</string>
+
+    <string name="feed_start">开始反馈</string>
+
+    <string name="feed_success">反馈成功</string>
+    <string name="feed_fail">反馈失败</string>
+
+    <string name="version_name">当前版本：</string>
+
+    <string name="cancle_requesr">是否取消当前排队</string>
+
+    <string name="exit_current_user">退出</string>
+    <string name="title_txt_search">搜索</string>
+
+    <string name="force_logout_txt">您已被迫下线</string>
+
+    <string name="feed_back">意见反馈</string>
+
+    <string name="report_pic">照片上传</string>
+
+    <string name="report_survey">现场查勘</string>
+
+    <string name="enter_survey">进入查勘</string>
+    <string name="finish_survey">查勘完成</string>
+
+    <string name="report_gusun">发起估损</string>
+    <string name="report_query">案件查询</string>
+
+    <string name="report_video">视频查勘</string>
+
+    <string name="headset">建议佩戴耳机</string>
+
+    <string name="timetamp">时间：</string>
+    <string name="b">B端：</string>
+
+    <string name="agent_name">坐席：</string>
+
+    <string name="location_info">地址：</string>
+
+    <string name="jizhi_name">机构：</string>
+
+    <string name="photo">照片</string>
+
+    <string name="edit">编辑</string>
+    <string name="edit_car_number">输入车牌号</string>
+
+    <string name="video_report">视频定损</string>
+    <string name="image_report">照片上传</string>
+
+    <string name="locationInfo_err">暂未获取到当前地址信息</string>
+
+    <string name="give_up_takephoto">确定放弃本次照片认证</string>
+
+    <string name="refuese_toast">添加车辆请求被拒绝，请协调后重试</string>
+    <string name="i_see">知道了</string>
+
+    <string name="add_photo_finsh">确认照片已拍摄完成</string>
+
+    <string name="back_main">确定</string>
+    <string name="ocr_err">抱歉未能识别该车牌号</string>
+    <string name="ocr_btn_input_text">手动输入</string>
+    <string name="ocr_btn_start_text">照片识别</string>
+
+    <string name="upload_success">上传成功!</string>
+    <string name="upload_fail">上传失败!</string>
+    <string name="upload_waiting">等待中...</string>
+    <string name="upload_empty">暂无上传信息</string>
+    <string name="upload_finish">图片已上传完成</string>
+    <string name="upload_uploading">上传中...</string>
+    <string name="cloudphoto_empty">云相册没有照片</string>
+    <string name="localphoto_empty">缓存相册没有照片</string>
+
+    <string name="search_hint_carnumber">请输入车牌号</string>
+    <string name="search_hint_bindid">"请输入母账号/姓名"</string>
+    <string name="search_nodata">抱歉，未搜索到相关结果!</string>
+    <string name="search_binduser_choose_text">请选择母账号关联</string>
+    <string name="search_binduser_nodata">抱歉，未查询到该母账号!</string>
+    <string name="search_default">输入车牌号可搜索以前的工单任务</string>
+
+    <string name="title_taskdetail">任务详情</string>
+    <string name="flow_taskdetail">流转记录</string>
+    <string name="dingsun_taskdetail">定损信息</string>
+    <string name="title_photouploadlist">上传列表</string>
+
+    <string name="loading_dingsun_info">"正在发起定损...."</string>
+    <string name="taskdetail_compoent_text">换件信息</string>
+    <string name="taskdetail_manhour_text">工时信息</string>
+    <string name="taskdetail_material_text">其他辅料</string>
+    <string name="taskdetail_loss_download_text">定损单下载</string>
+    <string name="loading_loss_info">信息加载中...</string>
+
+    <string name="taskinfoconfirm_title">出险信息</string>
+
+    <string name="taskinfo_survey_signed_pics_nofinished">"该工单尚未确认完成"</string>
+
+    <string name="carinfor_title_survey">现场查勘</string>
+    <string name="carinfor_title_survey_car">车辆查勘</string>
+    <string name="carinfor_title_survey_man">人伤查勘</string>
+    <string name="carinfor_title_survey_thing">物损查勘</string>
+    <string name="carinfor_title_choose_task">选择案件</string>
+    <string name="cloudphoto_title">选择照片</string>
+    <string name="localphoto_title">离线照片</string>
+    <string name="localtakephoto_title">离线拍照</string>
+
+    <string name="carinfo_reportno_carnumber_all_empty_text">"报案号和车牌号不能同时都为空"</string>
+    <string name="carinfo_reportno_carnumber_not_found">"抱歉,未查询到相关案件信息!如有疑问请拨打95518."</string>
+    <string name="carinfo_survey_error">"进入查勘失败，请确认后重试."</string>
+
+    <string name="carinfo_reportno_text">"报 案 号"</string>
+    <string name="carinfo_date_text">"出险日期"</string>
+    <string name="carinfo_address_text">"出险地址"</string>
+    <string name="carinfo_remark_text">"出险经过"</string>
+    <string name="carinfo_carnumber_text">"标的车牌"</string>
+    <string name="carinfo_reportname_text">"报案人"</string>
+    <string name="carinfo_reportnumber_text">"报案电话"</string>
+    <string name="carinfo_relationshi_text">"报案人与被保险人关系"</string>
+    <string name="carinfo_taskresion_text">"出险原因"</string>
+    <string name="carinfo_taskchoose_text">"请选择"</string>
+    <string name="tv_self_text">本人</string>
+    <string name="tv_not_self_text">非本人</string>
+    <string name="carinfo_zhipei_text">"是否直赔"</string>
+    <string name="carinfo_zhipei_third_text">"直赔三者"</string>
+    <string name="carinfo_reason_text">"出险原因"</string>
+    <string name="thirdcar_cannot_add">不能再添加三者车了</string>
+    <string name="man_cannot_add">不能再添加伤者了</string>
+
+    <string name="notice_phonenum_is_empty">联系人电话为空,请确认</string>
+
+    <string name="carinfo_survey_car_text">"车辆查勘"</string>
+    <string name="carinfo_survey_man_text">"人伤查勘"</string>
+    <string name="carinfo_survey_thing_text">"物损查勘"</string>
+
+    <string name="detaile_tasksurvey_text">"事故查勘"</string>
+    <string name="detaile_reportinfo_text">"案件信息"</string>
+
+    <string name="take_photo_from_camera_text">"相机拍摄"</string>
+    <string name="cloud_photo_text">"云相册"</string>
+    <string name="local_photo_text">"离线照片缓存"</string>
+    <string name="local_photo_take_text">事故照片</string>
+    <string name="local_photo_finished_text">完成</string>
+    <string name="local_photo_notice_title_text">使用说明</string>
+    <string name="local_photo_notice_message_text">离线拍照应用在无网络或网络极差的情况下。使用离线拍摄的照片，会暂存在APP的缓存中。之后在网络条件良好的情况下，在查勘中可以选取\"离线照片缓存\"使用该部分的照片</string>
+
+    <string name="target_detaile_photo_text">取证照片</string>
+    <string name="target_detaile_photo_car_text">车损照片</string>
+    <string name="target_detaile_photo_card_text">单证照片</string>
+    <string name="detaile_phone_text">"电   话"</string>
+    <string name="detaile_uploadback_text">"信息回传"</string>
+    <string name="show_uploadimage_message">正在回传，请稍后查看回传结果</string>
+    <string name="detaile_edit_text">"补充修改"</string>
+
+    <string name="photo_all_select_text">"全选"</string>
+    <string name="photo_all_select_cancel_text">"取消全选"</string>
+    <string name="photo_all_use_select_text">"使用所选"</string>
+
+    <string name="photo_uploadback_finished_text">"已回传"</string>
+    <string name="photo_uploadback_uploading_text">"回传中"</string>
+    <string name="photo_local_type_text">"暂存"</string>
+
+    <string name="target_cartypeinfo_text">"车辆信息"</string>
+    <string name="target_delete_car_text">"删除该车"</string>
+    <string name="target_carnumber_text">"车牌号*"</string>
+    <string name="target_carowner_text">"驾驶员*"</string>
+    <string name="target_reportnumber_text">"联系电话*"</string>
+    <string name="hint_input">请输入</string>
+    <string name="target_identity_text">"身份证号*"</string>
+    <string name="target_accident_liability_text">"事故责任*"</string>
+    <string name="target_accident_liability_title_text">"事故责任"</string>
+    <string name="target_choose_common_title_text">"请选择"</string>
+    <string name="target_hint_choose_text">请选择</string>
+    <string name="hint_choose_resion_message_text">请选择出险原因</string>
+    <string name="retry_get_info_message_text">获取信息失败，请重试</string>
+    <string name="target_damage_text">车损情况</string>
+    <string name="target_damage_area_text">"损伤部位*"</string>
+    <string name="target_damage_type_text">"损伤类型*"</string>
+    <string name="target_compensation_text">直赔到店</string>
+    <string name="target_institution_text">送修机构</string>
+    <string name="target_man_text">送修专员</string>
+    <string name="target_man_phone_text">送修电话</string>
+    <string name="target_photo_text">拍照取证</string>
+    <string name="thirdcar_carowner_text">"联系人*"</string>
+    <string name="thirdcar_carbrand_text">车辆品牌</string>
+    <string name="confirm_conclusion_text">查勘结论</string>
+
+    <string name="send_resign_pic_ok">已退回重签</string>
+    <string name="send_survey_pic_ok">推送成功</string>
+
+    <string name="confrim_not_survey_finished_message">"抱歉，没有查勘信息。请至少完成车辆查勘！"</string>
+
+    <string name="man_typeinfo_text">"伤者信息"</string>
+    <string name="man_add_text">"添加人"</string>
+    <string name="man_delete_name_text">"删除该人"</string>
+    <string name="man_name_text">"姓名*"</string>
+    <string name="man_phone_text">"联系电话*"</string>
+    <string name="man_cardnumber_text">"身份证号*"</string>
+    <string name="man_accident_liability_text">"事故责任*"</string>
+    <string name="man_damage_area_text">"损伤部位*"</string>
+    <string name="man_damage_type_text">"损伤等级*"</string>
+    <string name="man_damage_value_text">"赔付金额￥"</string>
+    <string name="man_damange_value_pay_text">是否已赔付</string>
+    <string name="man_choose_carnumber_text">若车内人员选择车牌</string>
+    <string name="man_detail_carnumber_text">车内人员</string>
+    <string name="man_detaile_photo_text">损伤照片</string>
+    <string name="man_detaile_photo_card_text">单证照片</string>
+
+    <string name="art_typeinfo_text">"物损信息"</string>
+    <string name="art_add_text">"添加物"</string>
+    <string name="art_delete_name_text">"删除该物"</string>
+    <string name="art_name_text">"物损名称*"</string>
+    <string name="art_master_name_text">"主人姓名"</string>
+    <string name="art_phone_text">"联系电话"</string>
+    <string name="art_cardnumber_text">"身份证号"</string>
+    <string name="art_accident_liability_text">"事故责任*"</string>
+    <string name="art_damage_area_text">"损伤部位*"</string>
+    <string name="art_damage_type_text">"损伤等级*"</string>
+    <string name="art_damage_money_value_text">"财务价值￥"</string>
+    <string name="art_damage_value_text">"赔付金额￥"</string>
+    <string name="art_damange_value_pay_text">是否已赔付</string>
+    <string name="art_choose_carnumber_text">若车内物损选择车牌</string>
+    <string name="art_detaile_carnumber_text">车内物损</string>
+    <string name="art_detaile_photo_text">损伤照片</string>
+    <string name="art_detaile_photo_card_text">单证照片</string>
+
+    <string name="survey_finished_button_text">车辆查勘完成</string>
+    <string name="survey_man_finished_button_text">人伤查勘完成</string>
+    <string name="survey_art_finished_button_text">物损查勘完成</string>
+    <string name="user_confirm_button_text">用户确认损失</string>
+    <string name="user_update_button_text">刷新</string>
+    <string name="user_re_add_button_text">提交</string>
+    <string name="user_confirm_showqr_button_text">查看二维码</string>
+    <string name="now_noauth_ar_text">"当前为免注册二维码"</string>
+    <string name="noauth_ar_text">"生成免注册二维码"</string>
+    <string name="accident_reposne_1">全责</string>
+    <string name="accident_reposne_2">主责</string>
+    <string name="accident_reposne_3">次责</string>
+    <string name="accident_reposne_4">无责</string>
+    <string name="accident_reposne_5">同责</string>
+    <string name="accident_reposne_6">待定</string>
+
+    <string name="confirm_compensation_text">直赔三者</string>
+
+    <string name="edit_notice_context">确定中途退出查勘? 退出后将不会保留本次修改</string>
+    <string name="edit_notice_delete_third_context">确认删除三者车吗</string>
+    <string name="edit_notice_delete_man_context">确认删除伤者吗</string>
+    <string name="edit_notice_delete_art_context">确认删除物品吗</string>
+    <string name="delete_exit_context">确认</string>
+    <string name="delete_exit_cancel_context">取消</string>
+    <string name="edit_exit_context">点错了</string>
+    <string name="edit_exit_cancel_context">继续退出</string>
+
+    <string name="father_dialog_confirm_context">请先匹配母账号!</string>
+    <string name="father_dialog_confirm_cannel_text">知道了</string>
+    <string name="father_dialog_confirm_ok_text">立即匹配</string>
+
+    <string name="confirm_newqr_title">确定生成免注册二维码?</string>
+    <string name="confirm_newqr_context">生成后将不通过公众号确认,也不会完成公众号注册绑定!</string>
+    <string name="confirm_newqr_ok_context">马上生成</string>
+    <string name="confirm_newqr_cancel_context">取消</string>
+
+    <string name="upload_notice_context">确定已审核完所有照片,并上传到核心系统?</string>
+    <string name="upload_ok_context">确定上传</string>
+    <string name="upload_cancel_context">取消</string>
+    <string name="upload_retry_context">重试</string>
+    <string name="survey_notice_button_confirm">知道了</string>
+    <string name="survey_notice_button_details">详情</string>
+
+    <string name="confirm_notice_empty_message">查勘结论不能为空，请确认</string>
+
+    <string name="confirm_notice_qr_message">请指引相应车主扫描,并完成查勘信息确认,左右滑动切换其他车辆二维码</string>
+
+    <string name="confirm_notice_sign_pic_message">报案号</string>
+    <string name="confirm_notice_sign_pic_button_text">推送电子查勘单</string>
+    <string name="confirm_sign_pic_resign_button_text">"重签"</string>
+
+    <string name="taskdetail_loss_download_notice_text">可以通过复制链接到电脑上打开下载打印</string>
+
+    <string name="taskdetail_takephoto_musthave_carnumber_text">拍照必须先输入车牌号!</string>
+
+    <string name="taskdetail_takephoto_musthave_man_text">拍照必须先输入伤者姓名!</string>
+    <string name="taskdetail_takephoto_musthave_arc_text">拍照必须先输入物品名称!</string>
+
+    <string name="taskdetail_add_carnumber_error_text">添加三者车失败,请重试!</string>
+    <string name="taskdetail_modify_carnumber_error_text">修改车牌失败!</string>
+    <string name="taskdetail_delete_carnumber_error_text">删除三者车失败,请重试!</string>
+
+    <string name="taskdetail_add_man_error_text">添加人失败,请重试!</string>
+    <string name="taskdetail_modify_man_error_text">修改姓名失败!</string>
+    <string name="taskdetail_delete_man_error_text">删除人失败,请重试!</string>
+
+    <string name="taskdetail_name_text">名称</string>
+    <string name="taskdetail_loss_docpath_copy_message">定损单地址已经复制到手机剪贴板</string>
+
+    <string name="taskdetail_loss_docpath_message_error">获取定损单信息失败</string>
+
+    <string name="taskdetaile_picc_allinfo_error">获取信息失败</string>
+
+    <string name="taskdetail_num_text">数量</string>
+    <string name="taskdetail_value_text">"金额(元)"</string>
+    <string name="taskdetail_loss_sum_value_text">"金额总计(元) ： "</string>
+
+    <string name="taskdetail_online_button_text">在线预览</string>
+    <string name="taskdetail_copy_button_text">复制链接</string>
+
+    <!--estimate activity-->
+    <string name="estimate_carnumber_no_empty">输入的车牌号不能为空</string>
+    <string name="estimate_vin_no_empty">输入的VIN码不能为空</string>
+    <string name="estimate_regist_no_empty">输入的报案号不能为空</string>
+
+    <!--reportinfo dialog-->
+    <string name="reportinfo_dlg_confirminfo">请确认报案信息</string>
+    <string name="reportinfo_dlg_carnumber_not_match_biao_text">"您输入的车牌号与标的车牌不一致,请核对!"</string>
+    <string name="reportinfo_dlg_carnumber_not_match_third_text">"您输入的车牌号与三者车牌不一致,请核对!"</string>
+    <string name="reportinfo_dlg_reportid">报案号: </string>
+    <string name="reportinfo_dlg_reporttime">报案时间: </string>
+    <string name="reportinfo_dlg_carNo">车牌号: </string>
+    <string name="reportinfo_dlg_biaodi_carNo">标的车牌: </string>
+    <string name="reportinfo_dlg_third_carNo">三者车牌: </string>
+    <string name="reportinfo_dlg_chuxiantime">出险时间: </string>
+    <string name="reportinfo_dlg_chuxianaddress">出险地点: </string>
+    <string name="reportinfo_dlg_chuxianreson">出险经过: </string>
+    <string name="reportinfo_dlg_reinput">重新输入</string>
+    <string name="reportinfo_dlg_estimatestarttext">发起估损</string>
+    <string name="reportinfo_dlg_noreport">没有查到报案信息</string>
+    <string name="reportinfo_dlg_noreport_details">没有查到 %s 案件信息，请输入正确报案号</string>
+    <string name="estimate_no_permisson_text">请确认当前用户是否已开通估损权限.</string>
+    <string name="dingsun_no_permisson_text">请确认当前用户是否已开通视频定损权限.</string>
+    <string name="search_no_permisson_text">请确认当前用户是否已开通查询权限.</string>
+    <string name="estimate_evalid_get_error">evalId 获取失败，请检查用户账号</string>
+
+
+    <!--setting page-->
+    <string name="send_success">发送成功!</string>
+    <string name="send_fail">发送成功!</string>
+    <string name="feedback">意见反馈</string>
+    <string name="about_us">关于我们</string>
+    <string name="amendpwd">修改密码</string>
+    <string name="exit_title">退出账号</string>
+    <string name="disconnet_title">断开连接</string>
+    <string name="disconnet_msg">当前已连接Wifi，确定断开?</string>
+    <string name="exit_msg">确定退出当前账号?</string>
+    <string name="pwd_error">密码格式错误</string>
+    <string name="camera_changephotostatus">选择单证</string>
+    <string name="uploadtab_fail">图片上传失败，请点击重试</string>
+    <string name="net_fail_camera">当前无网络，无法结束拍摄任务\n请恢复网络连接后重试</string>
+    <string name="commit_success">提交成功</string>
+    <string name="commit_fail">提交失败，请重新提交!</string>
+
+    <string name="shoot_continue">继续拍摄</string>
+
+    <string name="commit">立即提交</string>
+    <string name="commit_later">稍后提交</string>
+
+    <string name="commit_content">本次拍摄照片尚未提交,\n是否马上提交?</string>
+    <string name="hold">暂存</string>
+    <string name="commit_content1">提交：任务将立即被提交；\n暂存：您可以稍后到任务详情内提交；</string>
+    <string name="commit_content2">您可以到首页-工单详情\n点击[提交]按钮</string>
+
+    <string name="task_tab1">照片</string>
+    <string name="task_tab2">流转记录</string>
+    <string name="item_upload_txt">以下图片为上传完成</string>
+
+    <string name="delete_commit">确认</string>
+    <string name="delete_cancel">取消</string>
+    <string name="delete_content">确认删除图片?</string>
+
+    <string name="upload">上传</string>
+    <string name="cartype">车辆类型</string>
+    <string name="phone_num">手机号</string>
+    <string name="carinfor_title">确认车辆信息</string>
+    <string name="carinfor_gotocamera">去拍照</string>
+    <string name="carinfor_gotovideo">发起视频</string>
+    <string name="carinfor_note">备注信息</string>
+    <string name="carinfor_noreport">未查找到该报案号案件信息\n请输入有效报案号!</string>
+    <string name="carinfor_note_msg">请输入备注的消息</string>
+
+
+    <string name="report_content">报案号后6位</string>
+    <string name="report_time">出险时间</string>
+
+    <string name="title">请选择时间</string>
+    <string name="confirm">确定</string>
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="hour">时</string>
+    <string name="minute">分</string>
+
+    <string name="select_date">选择日期</string>
+    <string name="current_date">当前日期</string>
+    <string name="select_time">选择时间</string>
+    <string name="current_time">当前时间</string>
+    <string name="reportquery_note">默认查询30天内的案件，也可以查询指定日期前后15天的案件</string>
+
+    <string name="tv_reporttime_title">报案日期:</string>
+    <string name="tv_carnumber_title">车牌号:</string>
+    <string name="tv_reporter_title">报案人:</string>
+    <string name="tv_insured_title">被保险人:</string>
+    <string name="tv_address_title">出险地点:</string>
+    <string name="tv_goby_title">出险经过:</string>
+    <string name="txt_history">查询记录</string>
+    <string name="title_reportinfo">案件明细</string>
+    <string name="reportinfo_txt_info">基本信息</string>
+    <string name="reportinfo_sign_check_text">签名审核</string>
+    <string name="reportinfo_sign_info_text">电子查勘单</string>
+    <string name="reportinfo_txt_flow">流程信息</string>
+    <string name="reportinfo_txt_report">报案</string>
+    <string name="reportinfo_txt_survey">查勘</string>
+    <string name="reportinfo_txt_survey_time">处理时间:</string>
+    <string name="reportinfo_txt_user_text">处理人:</string>
+    <string name="reportinfo_txt_assess">定损</string>
+    <string name="reportinfo_txt_assess_car">标的车:</string>
+    <string name="reportinfo_txt_assess_money">定损金额:</string>
+</resources>

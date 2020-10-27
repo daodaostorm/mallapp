@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/master_SurveyMainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <LinearLayout
+            android:id="@+id/reportid_device_status"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40dp"
+            android:background="@color/color_F64848"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_15dp"
+            android:paddingRight="@dimen/dimen_15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/device_connect_status_text_id"
+                android:layout_width="@dimen/dimen_110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="@string/reportinfo_not_connect_status_text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/device_connect_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="@string/reportinfo_connect_text"
+                android:textColor="@color/white"
+                android:textSize="@dimen/dimen_14sp" />
+            />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_top"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportid_device_status" />
+
+        <LinearLayout
+            android:id="@+id/reportid_info_id_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_top">
+
+            <TextView
+                android:id="@+id/reportid_tv_id"
+                android:layout_width="@dimen/dimen_110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="@string/reportinfo_reportid"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <EditText
+                android:id="@+id/reportid_tv_text"
+                android:layout_width="@dimen/dimen_200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:gravity="center_vertical|left"
+                android:hint=""
+                android:text="20316546513025"
+                android:textColor="@color/color_575757"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/dimen_14sp" />
+            />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_time"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportid_info_id_ll" />
+
+        <LinearLayout
+            android:id="@+id/report_time_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_time">
+
+            <TextView
+                android:id="@+id/report_time_tv_id"
+                android:layout_width="@dimen/dimen_110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="@string/reportinfo_time"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <TextView
+                android:id="@+id/report_time_tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="2019-10-18 13:35"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+            />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_address"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/report_time_ll" />
+
+        <LinearLayout
+            android:id="@+id/address_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_address">
+
+            <TextView
+                android:id="@+id/address_tv_id"
+                android:layout_width="@dimen/dimen_110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="@string/reportinfo_address"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <TextView
+                android:id="@+id/address_tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:text="深圳市罗湖区建设路1号"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+            />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_remark"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/address_ll" />
+
+        <LinearLayout
+            android:id="@+id/remark_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_remark">
+
+            <TextView
+                android:id="@+id/remark_tv_id"
+                android:layout_width="@dimen/dimen_110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="@string/reportinfo_remark"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <TextView
+                android:id="@+id/remark_tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:gravity="center_vertical"
+                android:text="追尾"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+            />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_carnumber"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/remark_ll" />
+
+        <LinearLayout
+            android:id="@+id/carnumber_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_carnumber">
+
+            <TextView
+                android:id="@+id/carnumber_tv_id"
+                android:layout_width="@dimen/dimen_110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="@string/reportinfo_carnumber"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <TextView
+                android:id="@+id/carnumber_tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:gravity="center_vertical"
+                android:text="粤A12345"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+            />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_insurename"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carnumber_ll" />
+
+        <LinearLayout
+            android:id="@+id/insurename_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_insurename">
+
+            <TextView
+                android:id="@+id/insurename_tv_id"
+                android:layout_width="@dimen/dimen_110dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="@string/reportinfo_name"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <TextView
+                android:id="@+id/insurename_tv_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="@dimen/dimen_20dp"
+                android:gravity="center_vertical"
+                android:text="张小保"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+            />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/skip_btn"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/dimen_20dp"
+            android:layout_marginStart="@dimen/dimen_20dp"
+            android:layout_marginTop="@dimen/dimen_40dp"
+            android:background="@drawable/btn_bg_blue"
+            android:text="@string/bluetooth_detail_start_video"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintTop_toBottomOf="@+id/insurename_ll" />
+
+        <LinearLayout
+            android:id="@+id/record_status_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/no_color"
+            android:visibility="invisible"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportid_device_status">
+
+            <TextView
+                android:id="@+id/record_status_id"
+                android:layout_width="@dimen/dimen_200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text=""
+                android:textColor="@color/color_FFD7D7"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <TextView
+                android:id="@+id/record_status_status"
+                android:layout_width="@dimen/dimen_200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text=""
+                android:textColor="@color/color_FFD7D7"
+                android:textSize="@dimen/dimen_14sp" />
+            <TextView
+                android:id="@+id/record_status_video"
+                android:layout_width="@dimen/dimen_200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text=""
+                android:textColor="@color/color_FFD7D7"
+                android:textSize="@dimen/dimen_14sp" />
+            <TextView
+                android:id="@+id/record_status_audio"
+                android:layout_width="@dimen/dimen_200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:gravity="center_vertical|left"
+                android:text=""
+                android:textColor="@color/color_FFD7D7"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <TextView
+                android:id="@+id/record_status_st"
+                android:layout_width="@dimen/dimen_200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|left"
+                android:gravity="center_vertical|left"
+                android:text=""
+                android:textColor="@color/color_FFD7D7"
+                android:textSize="@dimen/dimen_14sp" />
+            />
+
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
