@@ -16,6 +16,12 @@
     <string name="cancel">取消</string>
     <string name="ok">确定</string>
 
+    <string name="list_empty">暂无信息</string>
+
+
+
+
+
     <!-- Key fob list item signal strength labels -->
     <string name="keyfob_signal_strength_weak">Weak Signal</string>
     <string name="keyfob_signal_strength_average">Average Signal</string>

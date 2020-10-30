@@ -51,7 +51,7 @@
             android:layout_below="@+id/iv"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="10dp"
-            android:text="@string/no_survey"
+            android:text="@string/list_empty"
             android:textColor="@color/color_hint" />
 
     </RelativeLayout>
