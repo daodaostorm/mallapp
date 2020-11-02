@@ -71,9 +71,8 @@ class SettingActivity : BaseActivity_2(), SettingContract.View {
         }
 
         val userInfo = PreferenceUtils.getUser()
-        if (userInfo.agent != null){
-            userinfo_name.text = userInfo.agent!!.fullName
-            userinfo_phone.text = "手机: " + userInfo.agent!!.cellphone
+        if (userInfo != null){
+            userinfo_name.text = userInfo.user
         }
 
         UpdateDeviceConnectStatus()

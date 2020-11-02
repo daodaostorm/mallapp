@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.github.jdsjlzx.recyclerview.ProgressStyle
+import com.google.gson.Gson
 import com.ran.mall.R
 import com.ran.mall.base.BaseActivity_2
 import com.ran.mall.entity.bean.*
@@ -21,8 +22,21 @@ import com.ran.mall.widget.LoadingView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_foot_layout.*
 import java.util.*
+import kotlin.collections.ArrayList
+
 
 class MainActivity : BaseActivity_2(),MainContract.View {
+
+    override fun requestBannerFail(errCode: Int, errMsg: String) {
+            ToastUtils.shortShow(errMsg)
+    }
+
+    override fun requestBannerSuccess(listInfo: ArrayList<BannerInfo>) {
+        LogUtils.i(Gson().toJson(listInfo))
+        mListBannerDatas = listInfo
+
+
+    }
 
     override fun onBackPressed() {
         //super.onBackPressed()
@@ -30,7 +44,7 @@ class MainActivity : BaseActivity_2(),MainContract.View {
 
     var mListDatas = ArrayList<TaskDetailInfo>()
 
-    private var DATE_ONE_DATE_M_SECOND = 86400000L
+    var mListBannerDatas = ArrayList<BannerInfo>()
 
     private var mCurrentPage = 1
     private val REQUEST_COUNT = 10
@@ -254,7 +268,8 @@ class MainActivity : BaseActivity_2(),MainContract.View {
         mCurrentPage = 1
         mListDatas.clear()
 
-        mPresenter?.getListTaskData(mCurrentPage, "")
+        mPresenter?.getBannerListData()
+        //mPresenter?.getListTaskData(mCurrentPage, "")
 
     }
     override fun responseToBackView() {

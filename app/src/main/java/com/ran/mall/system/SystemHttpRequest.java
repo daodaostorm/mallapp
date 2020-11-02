@@ -34,6 +34,16 @@ public class SystemHttpRequest extends SystemBase {
     }
 
     /**
+     * 注册
+     **/
+    public void responseRegister(String json, HttpRequestClient.RequestHttpCallBack callback) {
+        String api = "/clientuser/createuser";
+        StringBuilder builder = new StringBuilder(getUri() + API_URL);
+        builder.append(api);
+        HttpRequestClient.getIntance().post(builder.toString(), json, "", callback);
+    }
+
+    /**
      * 登录
      **/
     public void responseLogin(String json, HttpRequestClient.RequestHttpCallBack callback) {
@@ -49,11 +59,20 @@ public class SystemHttpRequest extends SystemBase {
      **/
     public void responseLogout(String json, HttpRequestClient.RequestHttpCallBack callback) {
         String api = "/api/logout";
-        StringBuilder builder = new StringBuilder(getUri());
+        StringBuilder builder = new StringBuilder(getUri() + API_URL);
         builder.append(api);
         HttpRequestClient.getIntance().post(builder.toString(), json, "", callback);
 
     }
 
+    /**
+     * getBannerList
+     **/
+    public void getBannerList(HttpRequestClient.RequestHttpCallBack callback) {
+        String api = "/banners/getBannersList";
+        StringBuilder builder = new StringBuilder(getUri() + API_URL);
+        builder.append(api);
+        HttpRequestClient.getIntance().get(builder.toString(), callback);
+    }
 
 }
