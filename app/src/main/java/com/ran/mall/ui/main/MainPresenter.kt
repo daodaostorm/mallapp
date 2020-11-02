@@ -23,7 +23,7 @@ class MainPresenter(mContext: MainActivity, mView: MainContract.View) : MainCont
 
         val userbean = PreferenceUtils.getUser() ?: return
 
-        SystemManager.getInstance().getSystem(SystemHttpRequest::class.java).getTaskList(userbean!!.agent!!.loginName, 10, pageIndex,strTimeInterval,object : HttpRequestClient.RequestHttpCallBack {
+        /*SystemManager.getInstance().getSystem(SystemHttpRequest::class.java).getTaskList(userbean!!.agent!!.loginName, 10, pageIndex,strTimeInterval,object : HttpRequestClient.RequestHttpCallBack {
 
             override fun onSuccess(json: String?) {
                 //mView?.onCreateTaskSuccess()
@@ -38,7 +38,7 @@ class MainPresenter(mContext: MainActivity, mView: MainContract.View) : MainCont
             override fun onFail(err: String?, code: Int) {
                 mView?.requestFail(code, err!!)
             }
-        })
+        })*/
     }
 
     override fun start() {

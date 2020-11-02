@@ -212,7 +212,7 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
         //String rid = JPushInterface.getRegistrationID(getApplicationContext());
 
         UserRequestMoudle userRequest = new UserRequestMoudle();
-        userRequest.setLoginName(mAccount);
+        userRequest.setUsername(mAccount);
         userRequest.setPassword(mPassWord);
         userRequest.setDeviceID(mDeviceId);
         return new Gson().toJson(userRequest);

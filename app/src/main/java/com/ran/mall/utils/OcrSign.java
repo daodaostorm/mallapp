@@ -109,33 +109,7 @@ public class OcrSign {
     public static byte[] HmacSha1(String plainText, String key) throws Exception {
         return HmacSha1(plainText.getBytes(), key);
     }
-    /***
-     * 生成 签名
-     *
-     * @throws UnsupportedEncodingException
-     */
-    public static String sign(List<String> attributes) throws UnsupportedEncodingException {
 
-        Object[] os = attributes.toArray();
-        Arrays.sort(os);
-        StringBuffer stringBuffer = new StringBuffer();
-        String key = AssessConfig.OCRKEY;
-        stringBuffer.append(key);
-        for (int i = 0; i < os.length; i++) {
-            if (i > 0) {
-                stringBuffer.append("&");
-            }
-            stringBuffer.append(os[i]);
-        }
-        //key 为约定字
-
-        LogUtils.INSTANCE.i("stringBuffer", stringBuffer.toString());
-        String content = stringBuffer.toString();
-        String sign = "";
-        sign = md5(content);
-        LogUtils.INSTANCE.i("sign", sign);
-        return sign;
-    }
 
     public static String md5(String string) {
         byte[] hash;

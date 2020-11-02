@@ -155,59 +155,6 @@ public class SystemCommon extends SystemBase {
     }
 
 
-    public void startUploadDeviceState() {
-        Log.d(TAG, "startUploadDeviceState ");
-        mIsUpload = true;
-        mUploadDeviceStatus.postDelayed(mUploadDeviceRunnable, 0);
-    }
-
-    public void stopUploadDeviceState() {
-        Log.d(TAG, "stopUploadDeviceState ");
-        mIsUpload = false;
-    }
-
-    public Runnable mUploadDeviceRunnable = new Runnable() {
-        @Override
-        public void run() {
-            if (mIsUpload) {
-                DeviceInfoBean deviceInfoBean = new DeviceInfoBean();
-                PairedBlueToothInfoBean connectDevice = PreferenceUtils.getPairedDevice();
-                if (connectDevice != null) {
-                    UserBean userinfo = PreferenceUtils.getUser();
-                    deviceInfoBean.setAgentId(userinfo.getAgent().get_id());
-                    deviceInfoBean.setMacAddress(connectDevice.getMacAddress());
-                    deviceInfoBean.setStatus(BaseActivity_2.mConnectDeviceStatus);
-                    deviceInfoBean.setStorageAll(BaseActivity_2.mConnectDeviceStorageAll);
-                    deviceInfoBean.setStorageRest(BaseActivity_2.mConnectDeviceStorageFree);
-                    deviceInfoBean.setPower(BaseActivity_2.mConnectDevicePower);
-                    if (getSystem(SystemBaiduLocation.class).getMInfo() != null) {
-                        deviceInfoBean.setLatitude(getSystem(SystemBaiduLocation.class).getMInfo().getdLatitude());
-                        deviceInfoBean.setLongitude(getSystem(SystemBaiduLocation.class).getMInfo().getdLongitude());
-                        deviceInfoBean.setPlace(getSystem(SystemBaiduLocation.class).getMInfo().getAddress());
-                    }
-                    String strJson = new Gson().toJson(deviceInfoBean);
-                    LogUtils.i("UploadDevice Post:", strJson);
-
-                    getSystem(SystemHttpRequest.class).responseUpdateDevice(strJson, new HttpRequestClient.RequestHttpCallBack() {
-
-                        @Override
-                        public void onSuccess(String json) {
-                            LogUtils.i("UploadDevice:", json);
-                        }
-
-                        @Override
-                        public void onFail(String err, int code) {
-                            LogUtils.i("UploadDevice err:", err);
-                        }
-                    });
-                } else {
-                    LogUtils.i("UploadDevice Not Paired");
-                }
-                mUploadDeviceStatus.postDelayed(mUploadDeviceRunnable, 5000); //5秒轮训 上传
-            }
-        }
-    };
-
 
 
     public void verifyStoragePermissions(Activity activity) {

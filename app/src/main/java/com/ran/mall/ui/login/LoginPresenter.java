@@ -49,12 +49,7 @@ public class LoginPresenter implements LoginContract.PresenterI {
         mLoginContract.getSystemRequest().responseLogin(entry, new HttpRequestClient.RequestHttpCallBack() {
             @Override
             public void onSuccess(String json) {
-                LogUtils.INSTANCE.i(TAG,"responseLoginAssess: " + entry +"\n"+"loginName " + user.getLoginName()+"\n"+json);
-
-                Set<String> tags = new HashSet<String>();
-                tags.add(user.getLoginName());
-                JPushInterface.setAlias(mContext, 1, user.getLoginName());
-                JPushInterface.setTags(mContext, 1, tags);
+                LogUtils.INSTANCE.i(TAG,"responseLoginAssess: " + entry +"\n"+"loginName " + user.getUsername()+"\n"+json);
 
                 if (!TextUtils.isEmpty(json)) {
                     mLoginContract.saveNameAndPwd();
@@ -73,14 +68,6 @@ public class LoginPresenter implements LoginContract.PresenterI {
                 mContext.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        try {
-                            Properties jsonObject = new Properties();
-
-                            jsonObject.put(DataStatisticsUtils.login_state, false);
-                            DataStatisticsUtils.setDataEvent(mContext, DataStatisticsUtils.login, jsonObject);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
 
                         mLoginContract.hideLoading();
                         mLoginContract.LoginBFail(err, code);

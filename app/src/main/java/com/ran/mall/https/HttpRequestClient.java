@@ -306,21 +306,21 @@ public class HttpRequestClient {
             public void onResponse(Call call, Response response) throws IOException {
                 String result = response.body().string();
                 LogUtils.INSTANCE.i(TAG, "onResponse: result" + result);
-                String errCode = null;
+                int errCode = 0;
 
-                try {
-                    errCode = new JSONObject(result).getString("errCode");
-                    if (errCode != null && errCode.equals("0")) {
+                    try {
+                    errCode = new JSONObject(result).getInt("code");
+                    if (errCode == 0) {
                         if (callBack != null) {
-                            if (new JSONObject(result).optString("result") != null) {
-                                callBack.onSuccess(new JSONObject(result).optString("result"));
+                            if (new JSONObject(result).optString("content") != null) {
+                                callBack.onSuccess(new JSONObject(result).optString("content"));
                             } else {
                                 callBack.onSuccess("");
                             }
                         }
                     } else {
                         if (callBack != null) {
-                            callBack.onFail(new JSONObject(result).getString("errInfo"), Integer.parseInt(errCode));
+                            callBack.onFail(new JSONObject(result).getString("message"), errCode);
                         }
                     }
                 } catch (JSONException e) {
