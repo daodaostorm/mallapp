@@ -17,7 +17,7 @@ public class CheckFirVersionUpdate {
     private final static String TAG = CheckFirVersionUpdate.class.getSimpleName();
 
     private final static String ydsUpdateUrl = "https://"+AssessConfig.rb_IP+":"+AssessConfig.rb_port+"/api/lossAss/getUpgradeInfo?packageName=com.ran.mall&versionCode=%s";
-    private final static String updateUrl = "https://gdrb-yds-test.ikandy.cn:60311/api/lossAss/getUpgradeInfo?packageName=com.ran.mall&versionCode=%s";
+    private final static String updateUrl = "https://ttttst/api/lossAss/getUpgradeInfo?packageName=com.ran.mall&versionCode=%s";
 
 
     public static CheckFirVersionUpdate mInstance;

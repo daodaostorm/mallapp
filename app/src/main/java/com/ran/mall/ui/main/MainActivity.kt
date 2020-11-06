@@ -5,6 +5,9 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.github.jdsjlzx.recyclerview.ProgressStyle
 import com.google.gson.Gson
@@ -17,6 +20,7 @@ import com.ran.mall.utils.LogUtils
 import com.ran.mall.utils.ToastUtils
 import com.ran.mall.utils.permission.PermissionConstants
 import com.ran.mall.utils.permission.PermissionUtils
+import com.ran.mall.widget.BannerView
 import com.ran.mall.widget.CustomDialog
 import com.ran.mall.widget.LoadingView
 import kotlinx.android.synthetic.main.activity_main.*
@@ -152,6 +156,16 @@ class MainActivity : BaseActivity_2(),MainContract.View {
 
         main_type_first.background = resources.getDrawable(R.drawable.main_tap_first_select)
         refreshData()
+
+        var list = ArrayList<BannerItem>()
+        for (i in urls.indices) {
+            val item = BannerItem()
+            item.image = urls[i]
+            item.title = titles[i]
+
+            list.add(item)
+        }
+
     }
 
 
@@ -301,4 +315,25 @@ class MainActivity : BaseActivity_2(),MainContract.View {
         }
     }
 
+    var titles = arrayOf("每周7件Tee不重样", "俏皮又知性 适合上班族的漂亮衬衫", "名侦探柯南", "境界之轮回", "我的英雄学院", "全职猎人")
+    var urls = arrayOf(//750x500
+            "https://s2.mogucdn.com/mlcdn/c45406/170422_678did070ec6le09de3g15c1l7l36_750x500.jpg", "https://s2.mogucdn.com/mlcdn/c45406/170420_1hcbb7h5b58ihilkdec43bd6c2ll6_750x500.jpg", "http://s18.mogucdn.com/p2/170122/upload_66g1g3h491bj9kfb6ggd3i1j4c7be_750x500.jpg", "http://s18.mogucdn.com/p2/170204/upload_657jk682b5071bi611d9ka6c3j232_750x500.jpg", "http://s16.mogucdn.com/p2/170204/upload_56631h6616g4e2e45hc6hf6b7g08f_750x500.jpg", "http://s16.mogucdn.com/p2/170206/upload_1759d25k9a3djeb125a5bcg0c43eg_750x500.jpg")
+
+    class BannerItem {
+        var image: String? = null
+        var title: String? = null
+
+        override fun toString(): String {
+            return title!!
+        }
+    }
+
+    class BannerViewFactory : BannerView.ViewFactory<BannerItem> {
+        override fun create(item: BannerItem, position: Int, container: ViewGroup): View {
+            val iv = ImageView(container.context)
+            //RequestOptions options = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.DATA);
+            Glide.with(container.context.applicationContext).load(item.image).into(iv)
+            return iv
+        }
+    }
 }

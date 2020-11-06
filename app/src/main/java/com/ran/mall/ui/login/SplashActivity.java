@@ -25,6 +25,7 @@ import com.ran.mall.system.SystemCommon;
 import com.ran.mall.system.SystemHttpRequest;
 import com.ran.mall.system.SystemLogHelper;
 import com.ran.mall.ui.main.MainActivity;
+import com.ran.mall.ui.mainscreen.MainScreenActivity;
 import com.ran.mall.utils.ApkUtils;
 import com.ran.mall.utils.PreferenceUtils;
 import com.ran.mall.widget.ShowIpControlDialog;
@@ -133,7 +134,7 @@ public class SplashActivity extends BaseActivity_2 implements LoginContract.View
             getSystem(SystemLogHelper.class).start();
 
 
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(SplashActivity.this, MainScreenActivity.class);
             startActivity(intent);
             finish();
 

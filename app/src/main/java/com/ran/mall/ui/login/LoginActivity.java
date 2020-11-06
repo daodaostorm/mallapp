@@ -25,6 +25,7 @@ import com.ran.mall.entity.constant.SPConstant;
 import com.ran.mall.system.SystemCommon;
 import com.ran.mall.system.SystemHttpRequest;
 import com.ran.mall.ui.main.MainActivity;
+import com.ran.mall.ui.mainscreen.MainScreenActivity;
 import com.ran.mall.utils.InfoUtils;
 import com.ran.mall.utils.PreferenceUtils;
 import com.ran.mall.utils.SPUtils;
@@ -177,7 +178,7 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
                 hideLoading();
                 PreferenceUtils.setLogin(true);
 
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainScreenActivity.class);
                 startActivity(intent);
                 finish();
             }

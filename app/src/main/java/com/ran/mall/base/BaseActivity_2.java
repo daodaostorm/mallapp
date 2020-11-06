@@ -97,7 +97,7 @@ public abstract class BaseActivity_2 extends BaseActivity implements LogoutView,
     }
 
     protected boolean isNeedTitleBar() {
-        return true;
+        return false;
     }
 
 
