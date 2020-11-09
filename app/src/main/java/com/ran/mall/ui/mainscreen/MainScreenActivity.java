@@ -12,6 +12,7 @@ import com.ran.mall.entity.bean.BannerInfo;
 import com.ran.mall.entity.bean.TaskDetailInfo;
 import com.ran.mall.ui.main.MainScreenPresenter;
 import com.ran.mall.ui.main.TestActivity;
+import com.ran.mall.utils.LogUtils;
 import com.ran.mall.widget.BannerView;
 import com.ran.mall.widget.LoadingView;
 
@@ -161,6 +162,12 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
             ImageView iv = new ImageView(container.getContext());
             //RequestOptions options = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.DATA);
             Glide.with(container.getContext().getApplicationContext()).load(item.getPicUrl()).into(iv);
+            iv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    LogUtils.i("onClick", String.valueOf(position));
+                }
+            });
             return iv;
         }
     }
