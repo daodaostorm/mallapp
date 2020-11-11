@@ -13,6 +13,7 @@ import com.ran.mall.entity.bean.TaskDetailInfo;
 import com.ran.mall.ui.main.MainScreenPresenter;
 import com.ran.mall.ui.main.TestActivity;
 import com.ran.mall.utils.LogUtils;
+import com.ran.mall.utils.ToastUtils;
 import com.ran.mall.widget.BannerView;
 import com.ran.mall.widget.LoadingView;
 
@@ -72,8 +73,7 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
 
     @Override
     public void requestBannerFail(int errCode, @NotNull String errMsg) {
-        hideLoading();
-
+        ToastUtils.longShow(errMsg);
     }
 
     @Override
