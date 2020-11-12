@@ -23,22 +23,12 @@ import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.google.gson.Gson;
-import com.ran.library.base.BaseActivity;
 import com.ran.library.base.SystemBase;
 import com.ran.library.base.SystemManager;
-import com.ran.mall.base.BaseActivity_2;
-import com.ran.mall.entity.bean.DeviceInfoBean;
-import com.ran.mall.entity.bean.PairedBlueToothInfoBean;
-import com.ran.mall.entity.bean.UserBean;
-import com.ran.mall.https.HttpRequestClient;
 import com.ran.mall.utils.ApplicationUtils;
-import com.ran.mall.utils.LogUtils;
-import com.ran.mall.utils.PreferenceUtils;
 import com.ran.mall.widget.EndEvidenceDialog;
 import com.ran.mall.widget.HintEvidenceDialog;
 import com.ran.mall.widget.ShowIpControlDialog;
@@ -51,14 +41,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
 import java.nio.IntBuffer;
 import java.util.ArrayList;
-import java.util.List;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLContext;
-import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.opengles.GL10;
 
 /**
@@ -171,17 +158,6 @@ public class SystemCommon extends SystemBase {
         }
     }
 
-    public boolean isFADMoblie() {
-
-        if (mMoblieModle == null && mMoblieModle.equals("")) {
-            return false;
-        }
-        if (mMoblieModle.toUpperCase().equals("HONOR") || mMoblieModle.toUpperCase().equals("HUAWEI")) {
-            return true;
-        }
-        return false;
-    }
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public void init() {
@@ -198,33 +174,6 @@ public class SystemCommon extends SystemBase {
 
     }
 
-    public void lightSwitch(final boolean lightStatus) {
-        if (lightStatus) { // 关闭手电筒
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                try {
-                    manager.setTorchMode("0", false);
-                } catch (Exception e) {
-                    Log.d(TAG, "lightSwitch: " + e);
-                    e.printStackTrace();
-                }
-            } else {
-
-            }
-        } else { // 打开手电筒
-
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                try {
-                    manager.setTorchMode("0", true);
-                } catch (Exception e) {
-                    Log.d(TAG, "lightSwitch: " + e);
-                    e.printStackTrace();
-                }
-            } else {
-
-            }
-        }
-    }
-
 
     /**
      * 判断Android系统版本是否 >= M(API23)
@@ -236,47 +185,6 @@ public class SystemCommon extends SystemBase {
             return false;
         }
     }
-
-    /**
-     * dip转pix
-     *
-     * @param context
-     * @param dp
-     * @return
-     */
-    public static int dp2px(Context context, float dp) {
-        final float scale = context.getResources().getDisplayMetrics().density;
-        return (int) (dp * scale + 0.5f);
-    }
-
-    public static Bitmap savePixels(int x, int y, int w, int h, GL10 gl) {
-        int b[] = new int[w * (y + h)];
-        int bt[] = new int[w * h];
-        IntBuffer ib = IntBuffer.wrap(b);
-        ib.position(0);
-        gl.glReadPixels(x, 0, w, y + h, GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, ib);
-        for (int i = 0, k = 0; i < h; i++, k++) {//remember, that OpenGL bitmap is incompatible with Android bitmap
-            for (int j = 0; j < w; j++) {
-                int pix = b[i * w + j];
-                int pb = (pix >> 16) & 0xff;
-                int pr = (pix << 16) & 0x00ff0000;
-                int pix1 = (pix & 0xff00ff00) | pr | pb;
-                bt[(h - k - 1) * w + j] = pix1;
-            }
-        }
-        Bitmap bp = Bitmap.createBitmap(bt, w, h, Bitmap.Config.ARGB_8888);
-        return bp;
-    }
-
-    public void screenShot(int width, int heigh, String filepath, ShotScreentCallBack callback) {
-        EGL10 egl = (EGL10) EGLContext.getEGL();
-        Log.d(TAG, "screenShot: egl" + egl.toString());
-        GL10 gl = (GL10) egl.eglGetCurrentContext().getGL();
-        Log.d(TAG, "screenShot: egl" + gl.toString());
-        Bitmap bp = savePixels(0, 0, width, heigh, gl);
-        savePic(bp, filepath, callback);
-    }
-
 
     // 保存到sdcard
     public void savePic(Bitmap b, String strFileName, ShotScreentCallBack callback) {

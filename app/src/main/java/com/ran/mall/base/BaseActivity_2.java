@@ -15,7 +15,6 @@ import android.widget.FrameLayout;
 import com.ran.library.base.BaseActivity;
 import com.ran.library.util.statusbar.StatusBarUtil;
 import com.ran.mall.R;
-import com.ran.mall.config.jpush.TagAliasOperatorHelper;
 import com.ran.mall.entity.bean.UpdateModel;
 import com.ran.mall.system.SystemCommon;
 import com.ran.mall.ui.login.LoginActivity;
@@ -25,12 +24,6 @@ import com.ran.mall.utils.ApplicationUtils;
 import com.ran.mall.utils.CheckFirVersionUpdate;
 import com.ran.mall.utils.PreferenceUtils;
 import com.ran.mall.widget.TitleBar;
-
-import cn.jpush.android.api.JPushInterface;
-
-import static com.ran.mall.config.jpush.TagAliasOperatorHelper.ACTION_CLEAN;
-import static com.ran.mall.config.jpush.TagAliasOperatorHelper.ACTION_DELETE;
-import static com.ran.mall.config.jpush.TagAliasOperatorHelper.TagAliasBean;
 
 /**
  * Created by pc on 2017/10/18.
@@ -127,10 +120,6 @@ public abstract class BaseActivity_2 extends BaseActivity implements LogoutView,
 
     }
 
-    public boolean isHUAWER() {
-        return getSystem(SystemCommon.class).isFADMoblie();
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -189,29 +178,11 @@ public abstract class BaseActivity_2 extends BaseActivity implements LogoutView,
     public void logout() {
         Log.d(TAG, "logout: ");
 
-        JPushInterface.cleanTags(BaseActivity_2.this, 1);
-        JPushInterface.deleteAlias(BaseActivity_2.this, 1);
-//                deleteAliasTag();
         PreferenceUtils.clear();
         ApplicationUtils.finishActivity();
         Intent intent = new Intent(BaseActivity_2.this.getApplicationContext(), LoginActivity.class);
         intent.putExtra(IS_F0ORCE_LOGOUT, false);
         startActivity(intent);
-    }
-
-    private void deleteAliasTag() {
-        TagAliasBean tagBean = new TagAliasBean();
-        tagBean.setAliasAction(false);
-//        tagBean.setTags(tags);
-        tagBean.setAction(ACTION_CLEAN);
-        TagAliasOperatorHelper.getInstance().handleAction(BaseActivity_2.this, 1, tagBean);
-
-
-        TagAliasBean aliasBean = new TagAliasBean();
-        aliasBean.setAliasAction(true);
-//        aliasBean.setAlias();
-        aliasBean.setAction(ACTION_DELETE);
-        TagAliasOperatorHelper.getInstance().handleAction(BaseActivity_2.this, 1, tagBean);
     }
 
     public void setLeftIconShow(boolean isVisible) {

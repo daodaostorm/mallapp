@@ -75,8 +75,6 @@ class SettingActivity : BaseActivity_2(), SettingContract.View {
             userinfo_name.text = userInfo.user
         }
 
-        UpdateDeviceConnectStatus()
-
     }
 
     fun startToConnectSetting(){
@@ -91,17 +89,6 @@ class SettingActivity : BaseActivity_2(), SettingContract.View {
             startToDeviceDetail()
         } else {
             startToConnectSetting()
-        }
-    }
-
-    fun UpdateDeviceConnectStatus(){
-        val deviceInfo = PreferenceUtils.getPairedDevice()
-        if (deviceInfo == null){
-            video_devices_status.text = resources.getString(R.string.device_not_connected_text)
-            video_devices_status.setTextColor(resources.getColor(R.color.black))
-        } else {
-            video_devices_status.text = resources.getString(R.string.device_connected_text)
-            video_devices_status.setTextColor(resources.getColor(R.color.color_007aff))
         }
     }
 

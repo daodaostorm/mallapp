@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide;
 import com.ran.mall.R;
 import com.ran.mall.base.BaseActivity_2;
 import com.ran.mall.entity.bean.BannerInfo;
-import com.ran.mall.entity.bean.TaskDetailInfo;
+import com.ran.mall.entity.bean.EssayInfo;
 import com.ran.mall.ui.main.MainScreenPresenter;
 import com.ran.mall.ui.main.TestActivity;
 import com.ran.mall.utils.LogUtils;
@@ -66,7 +66,7 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
     }
 
     @Override
-    public void requestSuccess(@NotNull ArrayList<TaskDetailInfo> listInfo) {
+    public void requestSuccess(@NotNull ArrayList<EssayInfo> listInfo) {
 
 
     }

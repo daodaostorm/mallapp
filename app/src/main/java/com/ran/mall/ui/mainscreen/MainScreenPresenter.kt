@@ -4,11 +4,8 @@ import android.app.Activity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.ran.library.base.SystemManager
-import com.ran.mall.R
 import com.ran.mall.entity.bean.BannerInfo
-import com.ran.mall.entity.bean.BannerInfoListBean
-import com.ran.mall.entity.bean.TaskDetailInfo
-import com.ran.mall.entity.bean.TaskInfoBean
+import com.ran.mall.entity.bean.EssayInfo
 import com.ran.mall.https.HttpRequestClient
 import com.ran.mall.system.SystemHttpRequest
 import com.ran.mall.ui.mainscreen.MainScreenActivity
@@ -82,7 +79,7 @@ class MainScreenPresenter(mContext: MainScreenActivity, mView: MainScreenContrac
 
     private var mContext: Activity = checkNotNull(mContext)
     private var mView: MainScreenContract.View = checkNotNull(mView)
-    private var mTaskListData = ArrayList<TaskDetailInfo>()
+    private var mTaskListData = ArrayList<EssayInfo>()
     private var mBannerListData = ArrayList<BannerInfo>()
 
     init {

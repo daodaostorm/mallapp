@@ -11,8 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.ran.mall.AssessConfig;
@@ -24,7 +22,6 @@ import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.entity.constant.SPConstant;
 import com.ran.mall.system.SystemCommon;
 import com.ran.mall.system.SystemHttpRequest;
-import com.ran.mall.ui.main.MainActivity;
 import com.ran.mall.ui.mainscreen.MainScreenActivity;
 import com.ran.mall.utils.InfoUtils;
 import com.ran.mall.utils.PreferenceUtils;
@@ -32,8 +29,6 @@ import com.ran.mall.utils.SPUtils;
 import com.ran.mall.utils.ToastUtils;
 import com.ran.mall.widget.CustomDialog;
 import com.ran.mall.widget.LoadingView;
-
-import cn.jpush.android.api.JPushInterface;
 
 /**
  * Created by pc on 2017/10/18.

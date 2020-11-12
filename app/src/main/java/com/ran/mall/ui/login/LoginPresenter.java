@@ -8,15 +8,8 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.ran.mall.entity.bean.UserRequestMoudle;
 import com.ran.mall.https.HttpRequestClient;
-import com.ran.mall.utils.DataStatisticsUtils;
 import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.PreferenceUtils;
-
-import java.util.HashSet;
-import java.util.Properties;
-import java.util.Set;
-
-import cn.jpush.android.api.JPushInterface;
 /**
  * Created by pc on 2017/10/20.
  */
