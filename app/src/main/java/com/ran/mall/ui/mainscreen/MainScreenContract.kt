@@ -24,7 +24,7 @@ interface MainScreenContract {
         
 		fun exit() //退出
 
-        fun getListTaskData(pageIndex: Int, strTimeInterval: String)
+        fun getListEssayData()
 
         fun getBannerListData()
 

@@ -75,4 +75,14 @@ public class SystemHttpRequest extends SystemBase {
         HttpRequestClient.getIntance().get(builder.toString(), callback);
     }
 
+    /**
+     * getEssayList
+     **/
+    public void getEssayList(HttpRequestClient.RequestHttpCallBack callback) {
+        String api = "/essay/getEssaysList";
+        StringBuilder builder = new StringBuilder(getUri() + API_URL);
+        builder.append(api);
+        HttpRequestClient.getIntance().get(builder.toString(), callback);
+    }
+
 }

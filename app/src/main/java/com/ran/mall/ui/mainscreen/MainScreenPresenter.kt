@@ -48,28 +48,30 @@ class MainScreenPresenter(mContext: MainScreenActivity, mView: MainScreenContrac
     }
 
 
-    override fun getListTaskData(pageIndex: Int, strTimeInterval: String) {
+    override fun getListEssayData() {
 
         mView?.showLoading()
 
-        val userbean = PreferenceUtils.getUser() ?: return
 
-        /*SystemManager.getInstance().getSystem(SystemHttpRequest::class.java).getTaskList(userbean!!.agent!!.loginName, 10, pageIndex,strTimeInterval,object : HttpRequestClient.RequestHttpCallBack {
+        SystemManager.getInstance().getSystem(SystemHttpRequest::class.java).getEssayList(object : HttpRequestClient.RequestHttpCallBack {
 
             override fun onSuccess(json: String?) {
-                //mView?.onCreateTaskSuccess()
-                val jsonObject = JSONObject(json)
-                val jsonlist = jsonObject.getString("list")
-                mTaskListData.clear()
-                mTaskListData.addAll(Gson().fromJson<ArrayList<TaskDetailInfo>>(jsonlist, object : TypeToken<List<TaskDetailInfo>>() {}.type))
 
-                mView?.requestSuccess(mTaskListData)
+                val jsonObject = JSONObject(json)
+                val jsonlist = jsonObject.getString("content")
+                mListEssayDatas.clear()
+                mListEssayDatas.addAll(Gson().fromJson<ArrayList<EssayInfo>>(jsonlist, object : TypeToken<List<EssayInfo>>() {}.type))
+
+                mView?.requestSuccess(mListEssayDatas)
 
             }
             override fun onFail(err: String?, code: Int) {
-                mView?.requestFail(code, err!!)
+                mContext?.runOnUiThread {
+                    mView?.hideLoading()
+                    mView?.requestFail(code, err!!)
+                }
             }
-        })*/
+        })
     }
 
     override fun start() {
@@ -79,7 +81,7 @@ class MainScreenPresenter(mContext: MainScreenActivity, mView: MainScreenContrac
 
     private var mContext: Activity = checkNotNull(mContext)
     private var mView: MainScreenContract.View = checkNotNull(mView)
-    private var mTaskListData = ArrayList<EssayInfo>()
+    private var mListEssayDatas = ArrayList<EssayInfo>()
     private var mBannerListData = ArrayList<BannerInfo>()
 
     init {

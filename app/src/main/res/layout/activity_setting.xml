@@ -55,7 +55,6 @@
         <ImageView
             android:layout_width="@dimen/dimen_40dp"
             android:layout_height="@dimen/dimen_40dp"
-            android:background="@drawable/document_pre"
             />
 
     </LinearLayout>

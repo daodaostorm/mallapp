@@ -1,15 +1,23 @@
 package com.ran.mall.ui.mainscreen;
 
 import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
+import com.github.jdsjlzx.interfaces.OnRefreshListener;
+import com.github.jdsjlzx.recyclerview.LRecyclerView;
+import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
+import com.github.jdsjlzx.recyclerview.ProgressStyle;
+import com.google.gson.Gson;
 import com.ran.mall.R;
 import com.ran.mall.base.BaseActivity_2;
 import com.ran.mall.entity.bean.BannerInfo;
 import com.ran.mall.entity.bean.EssayInfo;
+import com.ran.mall.ui.adapter.EssayInfoAdapter;
 import com.ran.mall.ui.main.MainScreenPresenter;
 import com.ran.mall.ui.main.TestActivity;
 import com.ran.mall.utils.LogUtils;
@@ -31,7 +39,14 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
     private static final String TAG = MainScreenActivity.class.getSimpleName();
 
     public ArrayList<BannerInfo> mListBannerDatas;
+    public ArrayList<EssayInfo> mListEssayDatas;
     public BannerView mBannerView;
+    public LRecyclerView mEssayView;
+
+    public static final int REQUEST_COUNT = 20;
+
+    public EssayInfoAdapter mEssayAdapter;
+    public LRecyclerViewAdapter mLRecyclerEssayAdapter;
 
     LoadingView mLoadingView = null;
 
@@ -39,7 +54,7 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
     public void refreshData() {
 
         mPresenter.getBannerListData();
-
+        mPresenter.getListEssayData();
 
     }
     @Override
@@ -54,20 +69,37 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
         setTitleText("中间");
         mPresenter = new MainScreenPresenter(this, this);
         mBannerView = (BannerView)findViewById(R.id.banner_top);
+        mEssayView = (LRecyclerView)findViewById(R.id.recyclerView_Essay);
+
         mListBannerDatas = new ArrayList<BannerInfo>();
+        mListEssayDatas = new ArrayList<EssayInfo>();
 
         mBannerView.setViewFactory(new BannerViewFactory());
+
+        initEssayRecyclerView();
+
         refreshData();
     }
 
     @Override
     public void requestFail(int errCode, @NotNull String errMsg) {
-
+        ToastUtils.longShow(errMsg);
     }
 
     @Override
     public void requestSuccess(@NotNull ArrayList<EssayInfo> listInfo) {
+        hideLoading();
 
+        runOnUiThread(new Runnable() {
+            @Override public void run() {
+                mListEssayDatas.clear();
+                mListEssayDatas = listInfo;
+                LogUtils.i("getEssayInfo " + new Gson().toJson(mListEssayDatas));
+                mEssayAdapter.clear();
+                mEssayAdapter.setDataList(mListEssayDatas);
+                mEssayView.refreshComplete(REQUEST_COUNT);
+            }
+        });
 
     }
 
@@ -92,6 +124,42 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
 
 
 
+
+    }
+
+    public void  initEssayRecyclerView() {
+
+
+        mEssayAdapter = new EssayInfoAdapter(this);
+        mLRecyclerEssayAdapter = new LRecyclerViewAdapter(mEssayAdapter);
+        mEssayView.setLayoutManager( new LinearLayoutManager(this));
+        mEssayView.setAdapter(mLRecyclerEssayAdapter);
+        mEssayView.setLoadMoreEnabled(true);
+        mEssayView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
+        mEssayView.setArrowImageView(R.drawable.progressbar);
+        mEssayView.setHeaderViewColor(R.color.gray_text, R.color.gray_text, R.color.app_bg);
+        mEssayView.setFooterViewColor(R.color.gray_text, R.color.gray_text, R.color.app_bg);
+
+        mEssayView.setOnLoadMoreListener(new OnLoadMoreListener() {
+            @Override
+            public void onLoadMore() {
+
+            }
+        });
+
+        mEssayView.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+            }
+        });
+
+        mEssayAdapter.setOnItemClickListener(new EssayInfoAdapter.EssayClickListener() {
+            @Override
+            public void onItemClick(@NotNull String strJson) {
+
+            }
+        });
 
     }
 
