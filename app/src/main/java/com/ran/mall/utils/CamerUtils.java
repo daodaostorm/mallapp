@@ -4,8 +4,8 @@ import android.hardware.Camera;
 import android.util.Log;
 
 /**
- * Created by Jutsin on 2018/4/21/021.
- * email：WjqJutin@163.com
+ * Created by pc on 2018/4/21/021.
+ * email：pc
  * effect：
  */
 

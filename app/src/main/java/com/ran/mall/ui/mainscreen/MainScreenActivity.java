@@ -143,14 +143,14 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
         mEssayView.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
-
+                mEssayView.refreshComplete(REQUEST_COUNT);
             }
         });
 
         mEssayView.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh() {
-
+                mEssayView.refreshComplete(REQUEST_COUNT);
             }
         });
 

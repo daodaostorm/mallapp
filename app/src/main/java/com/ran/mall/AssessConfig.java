@@ -6,12 +6,10 @@ package com.ran.mall;
 
 public class AssessConfig {
     //是否为对外版本
-    //true yds对外版本
+    //true 对外版本
     //false :测试版本
     public static final boolean isShowOut = false;
 
-    //是否显示配置Dialog
-    public static final boolean isShowIpDialog = false;
 
     public static final String CURRENTDEBUGVERSION = "-test";
 

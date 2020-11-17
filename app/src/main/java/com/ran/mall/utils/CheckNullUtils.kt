@@ -1,8 +1,8 @@
 package com.ran.mall.utils
 
 /**
- * Created by Jutsin on 2018/5/10/010.
- * email：WjqJutin@163.com
+ * Created by pc on 2018/5/10/010.
+ * email：pc
  * effect：checkNull
  */
 class CheckNullUtils {

@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="wrap_content"
     android:background="@color/white">
 
     <View
@@ -18,6 +18,7 @@
         android:id="@+id/main_pic_id"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_200dp"
+        android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_item_view"
@@ -40,61 +41,69 @@
     <TextView
         android:id="@+id/main_detail_id"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_80dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_10dp"
         android:layout_marginLeft="@dimen/dimen_15dp"
         android:layout_marginRight="@dimen/dimen_15dp"
         android:ellipsize="end"
-        android:text="车牌"
+        android:text="1111"
         android:textColor="@color/color_999999"
         android:textSize="12sp"
         app:layout_constraintTop_toBottomOf="@+id/main_title_id"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_30dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:paddingLeft="@dimen/dimen_25"
+        android:paddingRight="@dimen/dimen_25"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_detail_id"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
     <ImageView
         android:id="@+id/main_read_image"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimen_40dp"
-        android:layout_marginRight="@dimen/dimen_20dp"
+        android:layout_height="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_5dp"
+        android:background="@color/black"
         android:src="@drawable/show_view"
-        android:gravity="center_vertical"
-        app:layout_constraintRight_toLeftOf="@+id/main_read_id"
-        app:layout_constraintTop_toTopOf="@+id/main_dianzan_id"/>
+        android:gravity="center_vertical"/>
 
     <TextView
         android:id="@+id/main_read_id"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimen_40dp"
-        android:layout_marginRight="@dimen/dimen_40dp"
+        android:layout_height="@dimen/dimen_25dp"
+        android:layout_marginRight="@dimen/dimen_20dp"
         android:gravity="center_vertical"
-        android:text="10万"
+        android:text="10万+"
         android:textColor="@color/color_999999"
-        android:textSize="12sp"
-        app:layout_constraintRight_toRightOf="@+id/main_dianzan_image"
-        app:layout_constraintTop_toTopOf="@+id/main_dianzan_id"/>
+        android:textSize="10sp"/>
 
     <ImageView
         android:id="@+id/main_dianzan_image"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimen_40dp"
-        android:layout_marginRight="@dimen/dimen_10dp"
+        android:layout_height="@dimen/dimen_20dp"
+        android:layout_marginRight="@dimen/dimen_5dp"
+        android:background="@color/black"
         android:src="@drawable/show_praise"
-        android:gravity="center_vertical"
-        app:layout_constraintRight_toLeftOf="@+id/main_dianzan_id"
-        app:layout_constraintTop_toTopOf="@+id/main_dianzan_id"/>
+        android:gravity="center_vertical"/>
 
     <TextView
         android:id="@+id/main_dianzan_id"
         android:layout_width="wrap_content"
-        android:layout_height="@dimen/dimen_40dp"
-        android:layout_marginTop="@dimen/dimen_10dp"
-        android:layout_marginRight="@dimen/dimen_30dp"
+        android:layout_height="@dimen/dimen_25dp"
         android:layout_marginBottom="@dimen/dimen_20dp"
         android:gravity="center_vertical"
         android:text="1024"
         android:textColor="@color/color_999999"
-        android:textSize="12sp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_detail_id"/>
-
+        android:textSize="10sp"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

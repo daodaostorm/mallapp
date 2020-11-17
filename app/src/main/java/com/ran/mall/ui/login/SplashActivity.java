@@ -25,6 +25,7 @@ import com.ran.mall.system.SystemHttpRequest;
 import com.ran.mall.system.SystemLogHelper;
 import com.ran.mall.ui.mainscreen.MainScreenActivity;
 import com.ran.mall.utils.ApkUtils;
+import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.PreferenceUtils;
 import com.ran.mall.widget.ShowIpControlDialog;
 
@@ -35,19 +36,14 @@ import java.util.List;
  * Created by pc on 2017/10/18.
  */
 
-public class SplashActivity extends BaseActivity_2 implements LoginContract.View {
-    private LoginPresenter mLoginPreSenter;
+public class SplashActivity extends BaseActivity_2 {
     private final String TAG = SplashActivity.class.getSimpleName();
-    private String[] permissions = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE
-            , Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_COARSE_LOCATION
-            , Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.BLUETOOTH, Manifest.permission.BLUETOOTH_ADMIN};
-    List<String> mPermissionList = new ArrayList<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         String model = android.os.Build.BRAND;
-        Log.d(TAG, "onCreate: model" + model);
+        LogUtils.i(TAG + "onCreate: model" + model);
         PreferenceUtils.init(this);
         setCurrentSplash(true);
         getSystem(SystemCommon.class).mMoblieModle = model;
@@ -55,12 +51,6 @@ public class SplashActivity extends BaseActivity_2 implements LoginContract.View
             finish();
 
         }
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        return true;
     }
 
     @Override
@@ -80,12 +70,10 @@ public class SplashActivity extends BaseActivity_2 implements LoginContract.View
 
     @Override
     public void initEvent() {
-        mLoginPreSenter = new LoginPresenter(this, this);
-
 
         LinearLayout mView = findViewByIds(R.id.bg);
         AlphaAnimation aa = new AlphaAnimation(0.2f, 1.0f);
-        aa.setDuration(500);
+        aa.setDuration(5000);
         mView.setAnimation(aa);
         aa.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -95,21 +83,7 @@ public class SplashActivity extends BaseActivity_2 implements LoginContract.View
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                if (AssessConfig.isShowIpDialog) {
-                    getSystem(SystemCommon.class).showIPDialog(SplashActivity.this, new ShowIpControlDialog.onDialogListenerCallBack() {
-                        @Override
-                        public void onOkCliclck(String ip, String port) {
-                            if (!ip.equals("") && !port.equals("")) {
-                                getSystem(SystemHttpRequest.class).IP = ip;
-                                getSystem(SystemHttpRequest.class).port = port;
-                            }
-                            startIntoMain();
-                        }
-                    });
-                } else {
                     startIntoMain();
-                }
-
             }
 
             @Override
@@ -121,43 +95,12 @@ public class SplashActivity extends BaseActivity_2 implements LoginContract.View
 
     //页面跳转
     public void startIntoMain() {
-        mPermissionList.clear();
-        for (int i = 0; i < permissions.length; i++) {
-            if (ContextCompat.checkSelfPermission(this, permissions[i]) != PackageManager.PERMISSION_GRANTED) {
-                mPermissionList.add(permissions[i]);
-            }
-        }
-        if (mPermissionList.isEmpty()) {
-            Log.d(TAG, " no permiss is request");
+
             getSystem(SystemLogHelper.class).start();
-
-
             Intent intent = new Intent(SplashActivity.this, MainScreenActivity.class);
             startActivity(intent);
             finish();
 
-        } else {//请求权限方法
-            String[] permissions = mPermissionList.toArray(new String[mPermissionList.size()]);//将List转为数组
-            ActivityCompat.requestPermissions(this, permissions, 1);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        Log.d(TAG, "onRequestPermissionsResult: requestCode" + requestCode);
-        switch (requestCode) {
-            case 1:
-                getSystem(SystemLogHelper.class).start();
-                Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-
-                break;
-            default:
-                break;
-
-        }
     }
 
     @Override
@@ -170,54 +113,4 @@ public class SplashActivity extends BaseActivity_2 implements LoginContract.View
 
     }
 
-
-    @Override
-    public void showLoading() {
-    }
-
-    @Override
-    public void hideLoading() {
-    }
-
-
-    @Override
-    public void LoginSuccess() {
-        runOnUiThread(new Runnable() {
-            @Override public void run() {
-                /*PreferenceUtils.setLogin(true);
-
-                Intent intent = new Intent(SplashActivity.this, SurveyMainActivity.class);
-                startActivity(intent);
-                finish();*/
-            }
-        });
-    }
-
-    @Override
-    public void LoginBFail(String err, int errCode) {
-        Log.d(TAG, "LoginBFail: ");
-        Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-        startActivity(intent);
-        finish();
-    }
-
-    @Override
-    public SystemHttpRequest getSystemRequest() {
-        return getSystem(SystemHttpRequest.class);
-    }
-
-    @Override
-    public String getRequestBody() {
-        UserRequestMoudle model = PreferenceUtils.getUserRequestData();
-        if (model != null) {
-            return new Gson().toJson(model);
-        }
-
-        return null;
-    }
-
-    @Override
-    public void saveNameAndPwd() {
-
-    }
 }

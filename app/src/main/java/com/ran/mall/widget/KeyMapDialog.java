@@ -24,8 +24,8 @@ import com.ran.mall.utils.ToastUtils;
 
 
 /**
- * Created by Jutsin on 2018/6/1/001.
- * email：WjqJutin@163.com
+ * Created by pc on 2018/6/1/001.
+ * email：pc
  * effect：
  */
 

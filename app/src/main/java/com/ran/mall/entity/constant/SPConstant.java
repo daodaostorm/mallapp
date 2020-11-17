@@ -1,8 +1,8 @@
 package com.ran.mall.entity.constant;
 
 /**
- * Created by Jutsin on 2018/4/24/024.
- * email：WjqJutin@163.com
+ * Created by pc on 2018/4/24/024.
+ * email：pc
  * effect：
  */
 
