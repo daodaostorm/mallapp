@@ -1,4 +1,4 @@
-package com.ran.mall.ui.main
+package com.ran.mall.ui.mainscreen
 
 import android.app.Activity
 import com.google.gson.Gson
@@ -8,9 +8,6 @@ import com.ran.mall.entity.bean.BannerInfo
 import com.ran.mall.entity.bean.EssayInfo
 import com.ran.mall.https.HttpRequestClient
 import com.ran.mall.system.SystemHttpRequest
-import com.ran.mall.ui.mainscreen.MainScreenActivity
-import com.ran.mall.ui.mainscreen.MainScreenContract
-import com.ran.mall.utils.PreferenceUtils
 import org.json.JSONObject
 
 /**

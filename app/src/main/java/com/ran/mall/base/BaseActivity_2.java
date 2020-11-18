@@ -56,6 +56,7 @@ public abstract class BaseActivity_2 extends BaseActivity implements LogoutView,
             if (mTitleBar != null) {
                 mTitleBar.setTitleBarListener(this);
             }
+            mTitleBar.bringToFront();
         } else {
             setContentView(getLayoutId());
         }
@@ -90,7 +91,7 @@ public abstract class BaseActivity_2 extends BaseActivity implements LogoutView,
     }
 
     protected boolean isNeedTitleBar() {
-        return false;
+        return true;
     }
 
 
@@ -263,27 +264,6 @@ public abstract class BaseActivity_2 extends BaseActivity implements LogoutView,
         }
     }
 
-    @Override
-    public void showRlUpload() {
-        if (mTitleBar != null) {
-            mTitleBar.getRlUploadView().setVisibility(View.VISIBLE);
-            mTitleBar.getTvUploadTextView().setVisibility(View.GONE);
-        }
-    }
-
-    @Override
-    public void setRightRlViewCount(int count) {
-        if (mTitleBar != null) {
-            if (count != 0) {
-                mTitleBar.getTvUploadTextView().setVisibility(View.VISIBLE);
-                mTitleBar.getTvUploadTextView().setText(count + "");
-            } else {
-                mTitleBar.getTvUploadTextView().setVisibility(View.GONE);
-            }
-
-
-        }
-    }
 
     //检查版本更新
     public void checkUpdate() {

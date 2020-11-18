@@ -17,8 +17,9 @@ import com.ran.mall.R;
 import com.ran.mall.base.BaseActivity_2;
 import com.ran.mall.entity.bean.BannerInfo;
 import com.ran.mall.entity.bean.EssayInfo;
+import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.ui.adapter.EssayInfoAdapter;
-import com.ran.mall.ui.main.MainScreenPresenter;
+import com.ran.mall.ui.essaydetail.EssayDetailActivity;
 import com.ran.mall.ui.main.TestActivity;
 import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.ToastUtils;
@@ -66,7 +67,6 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
     public void initView() {
 
         setLeftViewIcon(R.drawable.icon_black_left_back);
-        setTitleText("中间");
         mPresenter = new MainScreenPresenter(this, this);
         mBannerView = (BannerView)findViewById(R.id.banner_top);
         mEssayView = (LRecyclerView)findViewById(R.id.recyclerView_Essay);
@@ -157,10 +157,16 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
         mEssayAdapter.setOnItemClickListener(new EssayInfoAdapter.EssayClickListener() {
             @Override
             public void onItemClick(@NotNull String strJson) {
-
+                startEssayDetail(strJson);
             }
         });
 
+    }
+
+    public void startEssayDetail(String strJson){
+        Intent intent = new Intent(this, EssayDetailActivity.class);
+        intent.putExtra(Constant.ESSAY_DETAIL_TYPE, strJson);
+        startActivity(intent);
     }
 
     @Override

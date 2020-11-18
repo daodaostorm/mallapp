@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:background="@color/colorPrimary">
+    android:layout_height="50dp"
+    android:background="@color/black_10">
 
     <ImageView
         android:id="@+id/left_iv"
@@ -31,9 +31,19 @@
         android:ellipsize="end"
         android:gravity="center"
         android:lines="1"
-        android:text="@string/app_name"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/tv_title_middle"
+        android:layout_width="@dimen/dimen_30dp"
+        android:layout_height="@dimen/dimen_30dp"
+        android:scaleType="fitCenter"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
+        android:background="@drawable/reco_min_selected1"
+        android:layout_gravity="center" />
 
     <TextView
         android:id="@+id/right_tv"
@@ -46,38 +56,5 @@
         android:id="@+id/right_iv"
         style="@style/title_bar_style"
         android:layout_gravity="right|center_vertical" />
-
-    <TextView
-        android:id="@+id/log"
-        style="@style/title_bar_style"
-        android:layout_gravity="right|center_vertical"
-        android:textColor="@color/black"
-        android:textSize="15sp" />
-
-    <RelativeLayout
-        android:id="@+id/rl_upload"
-        android:layout_width="@dimen/dimen_40dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right|center_vertical">
-
-        <ImageView
-            android:id="@+id/upload"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_photoupload" />
-
-        <TextView
-            android:id="@+id/tv_uploadcount"
-            android:layout_width="@dimen/dimen_12dp"
-            android:layout_height="@dimen/dimen_12dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginEnd="@dimen/dimen_11dp"
-            android:background="@drawable/camera_uploadcount"
-            android:gravity="center"
-            android:text=""
-            android:textColor="@color/white"
-            android:visibility="gone"
-            android:textSize="@dimen/dimen_9sp" />
-    </RelativeLayout>
 
 </FrameLayout>

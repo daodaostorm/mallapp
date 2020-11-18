@@ -21,12 +21,11 @@ public class TitleBar extends FrameLayout implements View.OnClickListener {
     private TextView mTvLeftView;
 
     private TextView mTvTitle;
+    private ImageView mIvMdddleView;
     private ImageView mIvLeftView;
     private TextView mTvRightView;
     private ImageView mIvRightView;
     private TitleBarListener mListener;
-    private RelativeLayout mRlupload;
-    private TextView mTvUpload;
 
     public TitleBar(Context context) {
         this(context, null);
@@ -50,21 +49,17 @@ public class TitleBar extends FrameLayout implements View.OnClickListener {
         mTvRightView = (TextView) findViewById(R.id.right_tv);
         mIvRightView = (ImageView) findViewById(R.id.right_iv);
         mTvLeftView = (TextView) findViewById(R.id.left_txt);
-        mRlupload = (RelativeLayout) findViewById(R.id.rl_upload);
-        mTvUpload = (TextView) findViewById(R.id.tv_uploadcount);
-
+        mIvMdddleView = (ImageView) findViewById(R.id.tv_title_middle);
         mTvLeftView.setVisibility(View.GONE);
         mTvRightView.setVisibility(View.GONE);
         mIvRightView.setVisibility(View.GONE);
         mIvLeftView.setVisibility(INVISIBLE);
-        mRlupload.setVisibility(View.GONE);
-
+        mTvTitle.setVisibility(View.GONE);
         mIvLeftView.setOnClickListener(this);
         mTvTitle.setOnClickListener(this);
         mTvRightView.setOnClickListener(this);
         mIvRightView.setOnClickListener(this);
         mTvLeftView.setOnClickListener(this);
-        mRlupload.setOnClickListener(this);
 
     }
 
@@ -81,7 +76,6 @@ public class TitleBar extends FrameLayout implements View.OnClickListener {
             case R.id.tv_title:
                 mListener.responseToTitle();
                 break;
-            case R.id.rl_upload:
             case R.id.right_iv:
             case R.id.right_tv:
                 mListener.responseToRightView();
@@ -113,9 +107,6 @@ public class TitleBar extends FrameLayout implements View.OnClickListener {
 
         void setRightViewIcon(@DrawableRes int drawableId);
 
-        void setRightRlViewCount(int count);
-
-        void showRlUpload();
     }
 
     public TextView getTitleView() {
@@ -138,13 +129,5 @@ public class TitleBar extends FrameLayout implements View.OnClickListener {
         return mTvLeftView;
     }
 
-    public TextView getTvUploadTextView() {
-
-        return mTvUpload;
-    }
-    public RelativeLayout getRlUploadView() {
-
-        return mRlupload;
-    }
 
 }
