@@ -6,10 +6,10 @@ package com.ran.mall.entity.bean
 
 
 data class GoodInfoListBean(
-        var content: ArrayList<GoonInfo> ?= null
+        var content: ArrayList<GoodInfo> ?= null
 )
 
-data class GoonInfo(
+data class GoodInfo(
         var id: Long = 0,
         var proid: String = "",
         var cateid: String = "",

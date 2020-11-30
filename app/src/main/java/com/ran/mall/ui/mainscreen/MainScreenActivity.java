@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -20,7 +21,9 @@ import com.ran.mall.entity.bean.EssayInfo;
 import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.ui.adapter.EssayInfoAdapter;
 import com.ran.mall.ui.essaydetail.EssayDetailActivity;
+import com.ran.mall.ui.goodlist.GoodListActivity;
 import com.ran.mall.ui.main.TestActivity;
+import com.ran.mall.ui.setting.SettingActivity;
 import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.ToastUtils;
 import com.ran.mall.widget.BannerView;
@@ -43,6 +46,8 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
     public ArrayList<EssayInfo> mListEssayDatas;
     public BannerView mBannerView;
     public LRecyclerView mEssayView;
+
+    public Button mEssayButton;
 
     public static final int REQUEST_COUNT = 20;
 
@@ -70,11 +75,15 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
         mPresenter = new MainScreenPresenter(this, this);
         mBannerView = (BannerView)findViewById(R.id.banner_top);
         mEssayView = (LRecyclerView)findViewById(R.id.recyclerView_Essay);
+        mEssayButton = (Button)findViewById(R.id.main_type_first);
+        mEssayButton.setBackground(this.getDrawable(R.drawable.main_tap_first_select));
 
         mListBannerDatas = new ArrayList<BannerInfo>();
         mListEssayDatas = new ArrayList<EssayInfo>();
 
         mBannerView.setViewFactory(new BannerViewFactory());
+
+
 
         initEssayRecyclerView();
 
@@ -215,13 +224,19 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
     }
 
     public void startSettings(){
-        Intent intent = new Intent(this, TestActivity.class);
+        Intent intent = new Intent(this, SettingActivity.class);
+        startActivity(intent);
+    }
+
+    public void startMall(){
+        Intent intent = new Intent(this, GoodListActivity.class);
         startActivity(intent);
     }
 
     public void bottomClick(View view){
         switch (view.getId()){
-            case R.id.main_type_first:
+            case R.id.main_type_mall:
+                startMall();
                 break;
             case R.id.main_type_my:
                 startSettings();

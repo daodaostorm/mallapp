@@ -21,11 +21,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@+id/main_type_record"  />
+        app:layout_constraintRight_toLeftOf="@+id/main_type_mall"  />
 
 
     <Button
-        android:id="@+id/main_type_record"
+        android:id="@+id/main_type_mall"
         android:layout_width="30dp"
         android:layout_height="@dimen/dp_40"
         android:layout_marginBottom="@dimen/dimen_3dp"
@@ -47,7 +47,7 @@
         android:background="@drawable/main_tap_my_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintLeft_toRightOf="@id/main_type_record"
+        app:layout_constraintLeft_toRightOf="@id/main_type_mall"
         app:layout_constraintRight_toRightOf="parent"  />
 
 </android.support.constraint.ConstraintLayout>

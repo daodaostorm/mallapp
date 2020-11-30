@@ -3,20 +3,19 @@ package  com.ran.mall.ui.adapter
 import android.content.Context
 import android.util.Log
 import android.widget.ImageView
-import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.ran.library.base.SuperViewHolder
 import com.ran.mall.R
-import com.ran.mall.entity.bean.GoonInfo
-import com.ran.mall.ui.adapter.ListBaseAdapter
+import com.ran.mall.entity.bean.GoodInfo
 import com.ran.mall.utils.CheckDoubleClickListener
 
 /**
  */
 private val TAG = GoodInfoAdapter::class.java.simpleName
 
-class GoodInfoAdapter(mContext: Context) : ListBaseAdapter<GoonInfo>(mContext) {
-    private var mListener: ReportClickListener? = null
+class GoodInfoAdapter(mContext: Context) : ListBaseAdapter<GoodInfo>(mContext) {
+    private var mListener: GoodClickListener? = null
 
     override fun getLayoutId(): Int {
         return R.layout.item_view_goodinfo
@@ -27,35 +26,26 @@ class GoodInfoAdapter(mContext: Context) : ListBaseAdapter<GoonInfo>(mContext) {
         val bean = mDataList[position]
 
         val image_back = holder.getView<ImageView>(R.id.main_pic_id)
-        val title_text = holder.getView<TextView>(R.id.main_title_id)
-        val detail_text = holder.getView<TextView>(R.id.main_detail_id)
 
-        //image_back.drawable =
-        title_text.text = bean.name
-        detail_text.text = bean.detail
+        Glide.with(mContext.getApplicationContext()).load(bean.detailpic1).into(image_back)
 
         holder.itemView.setOnClickListener(
 
                 CheckDoubleClickListener {
 
-                    skipVideoActivity(Gson().toJson(bean).toString())
+                    mListener?.onItemClick(Gson().toJson(bean))
                 }
         )
 
     }
 
-    fun setOnReportClickListener(listener: ReportClickListener?) {
-        Log.d(TAG, "setOnReportClickListener: ")
+    fun setOnItemClickListener(listener: GoodClickListener?) {
+        Log.d(TAG, "setOnItemClickListener: ")
         this.mListener = listener
     }
 
-    interface ReportClickListener {
-        fun skipVideoActivity(strJson: String)
+    interface GoodClickListener {
+        fun onItemClick(strJson: String)
     }
 
-    //页面跳转
-    fun skipVideoActivity(strJson: String) {
-
-
-    }
 }
