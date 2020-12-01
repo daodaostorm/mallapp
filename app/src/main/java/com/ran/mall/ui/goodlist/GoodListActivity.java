@@ -1,6 +1,7 @@
 package com.ran.mall.ui.goodlist;
 
 import android.content.Intent;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ import com.ran.mall.ui.mainscreen.MainScreenActivity;
 import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.ToastUtils;
 import com.ran.mall.widget.LoadingView;
+import com.ran.mall.widget.SpaceItemDecoration;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -103,7 +105,8 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
 
         mGoodAdapter = new GoodInfoAdapter(this);
         mLRecyclerGoodAdapter = new LRecyclerViewAdapter(mGoodAdapter);
-        mGoodlistView.setLayoutManager( new LinearLayoutManager(this));
+        mGoodlistView.setLayoutManager( new GridLayoutManager(this, 2));
+
         mGoodlistView.setAdapter(mLRecyclerGoodAdapter);
         mGoodlistView.setLoadMoreEnabled(true);
         mGoodlistView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
@@ -111,6 +114,8 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
         mGoodlistView.setHeaderViewColor(R.color.gray_text, R.color.gray_text, R.color.app_bg);
         mGoodlistView.setFooterViewColor(R.color.gray_text, R.color.gray_text, R.color.app_bg);
 
+        int space = getResources().getDimensionPixelSize(R.dimen.dimen_10dp);
+        mGoodlistView.addItemDecoration(new SpaceItemDecoration(space));
         mGoodlistView.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {

@@ -3,6 +3,7 @@ package  com.ran.mall.ui.adapter
 import android.content.Context
 import android.util.Log
 import android.widget.ImageView
+import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.google.gson.Gson
 import com.ran.library.base.SuperViewHolder
@@ -25,9 +26,12 @@ class GoodInfoAdapter(mContext: Context) : ListBaseAdapter<GoodInfo>(mContext) {
     override fun onBindItemHolder(holder: SuperViewHolder, position: Int) {
         val bean = mDataList[position]
 
-        val image_back = holder.getView<ImageView>(R.id.main_pic_id)
-
-        Glide.with(mContext.getApplicationContext()).load(bean.detailpic1).into(image_back)
+        val main_image = holder.getView<ImageView>(R.id.gooditem_pic_id)
+        val main_title = holder.getView<TextView>(R.id.gooditem_title_id)
+        val price_value = holder.getView<TextView>(R.id.gooditem_price_id)
+        main_title.text = bean.name
+        price_value.text = bean.price.toString() + "元"
+        Glide.with(mContext.getApplicationContext()).load(bean.detailpic1).into(main_image)
 
         holder.itemView.setOnClickListener(
 
