@@ -52,6 +52,7 @@
     <dimen name="dimen_200dp">200dp</dimen>
     <dimen name="dimen_220dp">220dp</dimen>
     <dimen name="dimen_250dp">250dp</dimen>
+    <dimen name="dimen_280dp">280dp</dimen>
     <dimen name="dimen_300dp">300dp</dimen>
     <dimen name="picker_view_height">160dp</dimen>
     <dimen name="date_unit_text_size">18sp</dimen>

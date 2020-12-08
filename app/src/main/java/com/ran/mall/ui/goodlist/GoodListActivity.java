@@ -3,6 +3,7 @@ package com.ran.mall.ui.goodlist;
 import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
@@ -10,6 +11,8 @@ import com.github.jdsjlzx.interfaces.OnLoadMoreListener;
 import com.github.jdsjlzx.interfaces.OnRefreshListener;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter;
+import com.github.jdsjlzx.recyclerview.LuRecyclerView;
+import com.github.jdsjlzx.recyclerview.LuRecyclerViewAdapter;
 import com.github.jdsjlzx.recyclerview.ProgressStyle;
 import com.google.gson.Gson;
 import com.ran.mall.R;
@@ -17,6 +20,7 @@ import com.ran.mall.base.BaseActivity_2;
 import com.ran.mall.entity.bean.GoodInfo;
 import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.ui.adapter.GoodInfoAdapter;
+import com.ran.mall.ui.adapter.TuijianGoodInfoAdapter;
 import com.ran.mall.ui.essaydetail.EssayDetailActivity;
 import com.ran.mall.ui.main.TestActivity;
 import com.ran.mall.ui.mainscreen.MainScreenActivity;
@@ -40,11 +44,15 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
 
     public ArrayList<GoodInfo> mListGoodDatas;
     public LRecyclerView mGoodlistView;
+    public LuRecyclerView mTuijianlistView;
 
     public static final int REQUEST_COUNT = 20;
 
     public GoodInfoAdapter mGoodAdapter;
     public LRecyclerViewAdapter mLRecyclerGoodAdapter;
+
+    public TuijianGoodInfoAdapter mTuijianAdapter;
+    public LuRecyclerViewAdapter mLRecyclerTuijianAdapter;
 
     LoadingView mLoadingView = null;
 
@@ -67,14 +75,14 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
         setLeftViewIcon(R.drawable.icon_black_left_back);
         mPresenter = new GoodListPresenter(this, this);
         mGoodlistView = (LRecyclerView)findViewById(R.id.recyclerView_Good);
-
+        mTuijianlistView = (LuRecyclerView)findViewById(R.id.recyclerView_Tuijian);
         mMallButton = (Button)findViewById(R.id.main_type_mall);
         mMallButton.setBackground(this.getDrawable(R.drawable.main_tap_record_select));
 
         mListGoodDatas = new ArrayList<GoodInfo>();
 
         initGoodRecyclerView();
-
+        initTuijianRecyclerView();
         refreshData();
     }
 
@@ -95,6 +103,28 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
                 mGoodAdapter.clear();
                 mGoodAdapter.setDataList(mListGoodDatas);
                 mGoodlistView.refreshComplete(REQUEST_COUNT);
+
+                mTuijianAdapter.clear();
+                mTuijianAdapter.setDataList(mListGoodDatas);
+                //mTuijianlistView.refreshComplete(REQUEST_COUNT);
+            }
+        });
+
+    }
+
+    public void  initTuijianRecyclerView() {
+
+
+        mTuijianAdapter = new TuijianGoodInfoAdapter(this);
+        mLRecyclerTuijianAdapter = new LuRecyclerViewAdapter(mTuijianAdapter);
+        mTuijianlistView.setLayoutManager( new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,false));
+
+        mTuijianlistView.setAdapter(mLRecyclerTuijianAdapter);
+
+        mTuijianAdapter.setOnItemClickListener(new TuijianGoodInfoAdapter.GoodClickListener() {
+            @Override
+            public void onItemClick(@NotNull String strJson) {
+                startEssayDetail(strJson);
             }
         });
 
