@@ -35,14 +35,6 @@ public abstract class BaseActivity_2 extends BaseActivity implements LogoutView,
     public boolean isSplsh = false;
     public static final String IS_F0ORCE_LOGOUT = "is_force_logout";
 
-    public static String mConnectDeviceStatus = "1";  // 1.开机 2.录制 3.上传 4.离线
-    public static String mConnectDeviceStorageAll = "128G";
-    public static String mConnectDeviceStorageFree = "---";
-    public static String mConnectDevicePower = "---";
-    public static boolean mConnectDeviceUploadStatus = false;
-    public static boolean mConnectDeviceWifiStatus = false;
-    public static boolean mConnectDeviceAutoUploadStatus = false;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -15,5 +15,5 @@ public class Constant {
 
 
     public final static String ESSAY_DETAIL_TYPE = "essay_detail_type";
-
+    public final static String GOOD_DETAIL_TYPE = "good_detail_type";
 }

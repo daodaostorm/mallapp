@@ -28,6 +28,7 @@ import com.ran.mall.ui.mainscreen.MainScreenActivity;
 import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.ToastUtils;
 import com.ran.mall.widget.LoadingView;
+import com.ran.mall.widget.MyGridLayoutManager;
 import com.ran.mall.widget.SpaceItemDecoration;
 
 import org.jetbrains.annotations.NotNull;
@@ -136,7 +137,9 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
 
         mGoodAdapter = new GoodInfoAdapter(this);
         mLRecyclerGoodAdapter = new LRecyclerViewAdapter(mGoodAdapter);
-        mGoodlistView.setLayoutManager( new GridLayoutManager(this, 2));
+        MyGridLayoutManager gridLayoutManager = new MyGridLayoutManager(this, 2);
+        gridLayoutManager.setScrollEnabled(false);
+        mGoodlistView.setLayoutManager( gridLayoutManager);
 
         mGoodlistView.setAdapter(mLRecyclerGoodAdapter);
         mGoodlistView.setLoadMoreEnabled(true);
@@ -172,7 +175,7 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
 
     public void startGoodDetail(String strJson){
         Intent intent = new Intent(this, GoodDetailActivity.class);
-        intent.putExtra(Constant.ESSAY_DETAIL_TYPE, strJson);
+        intent.putExtra(Constant.GOOD_DETAIL_TYPE, strJson);
         startActivity(intent);
     }
 

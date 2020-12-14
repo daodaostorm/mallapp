@@ -3,12 +3,17 @@ package com.ran.mall.ui.gooddetail;
 import android.support.design.widget.TabLayout;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LuRecyclerView;
+import com.google.gson.Gson;
 import com.ran.mall.R;
 import com.ran.mall.base.BaseActivity_2;
 import com.ran.mall.entity.bean.GoodInfo;
+import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.widget.LoadingView;
 
 import java.util.ArrayList;
@@ -26,7 +31,13 @@ public class GoodDetailActivity extends BaseActivity_2 {
     public TabLayout mTabView;
     LoadingView mLoadingView = null;
 
+    public String mStrJson;
+    public GoodInfo mGoodInfo;
     public Button mMallButton;
+
+    public ImageView mMainTopView;
+    public TextView mMainTile;
+    public TextView mSubTile;
 
     @Override
     public int getLayoutId() {
@@ -37,6 +48,16 @@ public class GoodDetailActivity extends BaseActivity_2 {
     public void initView() {
 
         setLeftViewIcon(R.drawable.icon_black_left_back);
+        mStrJson = getIntent().getStringExtra(Constant.GOOD_DETAIL_TYPE);
+        mGoodInfo = new Gson().fromJson(mStrJson, GoodInfo.class);
+
+        mMainTile = (TextView)findViewByIds(R.id.main_title_id);
+        mMainTopView = (ImageView)findViewByIds(R.id.main_pic_id);
+
+        if (mGoodInfo != null){
+            Glide.with(this.getApplicationContext()).load(mGoodInfo.getDetailpic1()).into(mMainTopView);
+            mMainTile.setText(mGoodInfo.getName());
+        }
         initTabView();
     }
 

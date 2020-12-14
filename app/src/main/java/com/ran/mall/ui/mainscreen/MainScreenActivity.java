@@ -71,7 +71,7 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
     @Override
     public void initView() {
 
-        setLeftViewIcon(R.drawable.icon_black_left_back);
+        //setLeftViewIcon(R.drawable.icon_black_left_back);
         mPresenter = new MainScreenPresenter(this, this);
         mBannerView = (BannerView)findViewById(R.id.banner_top);
         mEssayView = (LRecyclerView)findViewById(R.id.recyclerView_Essay);
