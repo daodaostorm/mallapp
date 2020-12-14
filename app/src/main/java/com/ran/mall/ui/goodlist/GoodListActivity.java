@@ -22,6 +22,7 @@ import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.ui.adapter.GoodInfoAdapter;
 import com.ran.mall.ui.adapter.TuijianGoodInfoAdapter;
 import com.ran.mall.ui.essaydetail.EssayDetailActivity;
+import com.ran.mall.ui.gooddetail.GoodDetailActivity;
 import com.ran.mall.ui.main.TestActivity;
 import com.ran.mall.ui.mainscreen.MainScreenActivity;
 import com.ran.mall.utils.LogUtils;
@@ -124,7 +125,7 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
         mTuijianAdapter.setOnItemClickListener(new TuijianGoodInfoAdapter.GoodClickListener() {
             @Override
             public void onItemClick(@NotNull String strJson) {
-                startEssayDetail(strJson);
+                startGoodDetail(strJson);
             }
         });
 
@@ -163,14 +164,14 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
         mGoodAdapter.setOnItemClickListener(new GoodInfoAdapter.GoodClickListener() {
             @Override
             public void onItemClick(@NotNull String strJson) {
-                startEssayDetail(strJson);
+                startGoodDetail(strJson);
             }
         });
 
     }
 
-    public void startEssayDetail(String strJson){
-        Intent intent = new Intent(this, EssayDetailActivity.class);
+    public void startGoodDetail(String strJson){
+        Intent intent = new Intent(this, GoodDetailActivity.class);
         intent.putExtra(Constant.ESSAY_DETAIL_TYPE, strJson);
         startActivity(intent);
     }

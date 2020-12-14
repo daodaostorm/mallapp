@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_foot_layout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dimen_60dp"
+    android:background="@color/color_eeeeee"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent">
+
+    <LinearLayout
+        android:id="@+id/ll_tablayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_60dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/store_list"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dimen_3dp"
+            android:background="@drawable/btn_bg_blue"
+            android:gravity="center"
+            android:onClick="bottomClick"
+            android:text="@string/mainlist_add_new_devices"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/addto_store"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dimen_3dp"
+            android:background="@drawable/btn_bg_blue"
+            android:gravity="center"
+            android:onClick="bottomClick"
+            android:text="添加购物车"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_16sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/just_buy"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginBottom="@dimen/dimen_3dp"
+            android:gravity="center"
+            android:onClick="bottomClick"
+            android:text="立即购买"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dimen_16sp" />
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>
