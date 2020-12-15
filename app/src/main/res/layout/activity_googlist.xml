@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dimen_280dp"
                 android:layout_marginTop="@dimen/dimen_12dp"
-                android:background="@color/red"
+                android:background="@color/white"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider1" />
