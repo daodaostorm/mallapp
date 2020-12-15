@@ -1,6 +1,8 @@
 package com.ran.mall.ui.gooddetail;
 
+import android.graphics.Paint;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -41,7 +43,8 @@ public class GoodDetailActivity extends BaseActivity_2 implements TabLayout.OnTa
     public NoScrollViewPager mViewPager;
     public ImageView mMainTopView;
     public TextView mMainTile;
-    public TextView mSubTile;
+    public TextView mPriceValue;
+    public TextView mOriginPriceValue;
 
     public GoodDetailViewPagerAdapter mGoodDetailViewPagerAdapter;
     @Override
@@ -57,12 +60,16 @@ public class GoodDetailActivity extends BaseActivity_2 implements TabLayout.OnTa
         mGoodInfo = new Gson().fromJson(mStrJson, GoodInfo.class);
 
         mMainTile = (TextView)findViewByIds(R.id.main_title_id);
+        mPriceValue = (TextView)findViewByIds(R.id.main_price_id);
+        mOriginPriceValue = (TextView)findViewByIds(R.id.main_origin_price_id);
         mMainTopView = (ImageView)findViewByIds(R.id.main_pic_id);
-
+        mOriginPriceValue.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
 
         if (mGoodInfo != null){
             Glide.with(this.getApplicationContext()).load(mGoodInfo.getDetailpic1()).into(mMainTopView);
             mMainTile.setText(mGoodInfo.getName());
+            mPriceValue.setText(String.valueOf(mGoodInfo.getPrice()) + "元");
+            mOriginPriceValue.setText(String.valueOf(mGoodInfo.getOrginprice()) + "元");
         }
         initViewPager();
     }
@@ -74,7 +81,23 @@ public class GoodDetailActivity extends BaseActivity_2 implements TabLayout.OnTa
         mGoodDetailViewPagerAdapter = new GoodDetailViewPagerAdapter(this);
         mViewPager.setAdapter(mGoodDetailViewPagerAdapter);
         mViewPager.setOffscreenPageLimit(mGoodDetailViewPagerAdapter.getCount());
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         mTabView.addOnTabSelectedListener(this);
         mTabView.setupWithViewPager(mViewPager);
     }
