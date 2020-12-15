@@ -5,7 +5,7 @@
     android:id="@+id/main_foot_layout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/dimen_60dp"
-    android:background="@color/color_eeeeee"
+    android:background="@color/white"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintLeft_toLeftOf="parent"
     app:layout_constraintRight_toRightOf="parent">
@@ -16,33 +16,32 @@
         android:layout_height="@dimen/dimen_60dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_20dp"
+        android:paddingRight="@dimen/dimen_20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent">
 
         <Button
             android:id="@+id/store_list"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_40"
+            android:layout_width="@dimen/dimen_40dp"
+            android:layout_height="@dimen/dimen_40dp"
             android:layout_marginBottom="@dimen/dimen_3dp"
-            android:background="@drawable/btn_bg_blue"
+            android:background="@drawable/float_cart"
             android:gravity="center"
-            android:onClick="bottomClick"
-            android:text="@string/mainlist_add_new_devices"
-            android:textColor="@color/white"
-            android:textSize="@dimen/dimen_16sp" />
+            android:onClick="bottomClick" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_40"
-            android:layout_weight="1" />
-
+    <View
+    android:layout_width="@dimen/dimen_20dp"
+    android:layout_height="@dimen/dimen_40dp"
+    />
         <Button
             android:id="@+id/addto_store"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_40"
             android:layout_marginBottom="@dimen/dimen_3dp"
-            android:background="@drawable/btn_bg_blue"
+            android:background="@drawable/btn_bg_black"
+            android:layout_weight="1"
             android:gravity="center"
             android:onClick="bottomClick"
             android:text="添加购物车"
@@ -50,16 +49,17 @@
             android:textSize="@dimen/dimen_16sp" />
 
         <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_40"
-            android:layout_weight="1" />
-
+            android:layout_width="@dimen/dimen_10dp"
+            android:layout_height="@dimen/dimen_40dp"
+            />
         <Button
             android:id="@+id/just_buy"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_40"
             android:layout_marginBottom="@dimen/dimen_3dp"
             android:gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/btn_bg_red"
             android:onClick="bottomClick"
             android:text="立即购买"
             android:textColor="@color/white"
