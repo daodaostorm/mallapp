@@ -10,8 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Justin on 2018/6/1/001.
- * email：WjqJustin@163.com
  * effect：FragmentPagerAdapter的基类
  */
 public abstract class BaseFragmentPagerAdapter<T extends Fragment> extends FragmentPagerAdapter {
@@ -29,6 +27,10 @@ public abstract class BaseFragmentPagerAdapter<T extends Fragment> extends Fragm
         this(activity.getSupportFragmentManager(), count);
     }
 
+    public BaseFragmentPagerAdapter(FragmentActivity activity) {
+        this(activity.getSupportFragmentManager(), 0);
+
+    }
     /**
      * 在Fragment中使用ViewPager适配器
      */

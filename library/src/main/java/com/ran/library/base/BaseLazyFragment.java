@@ -17,8 +17,6 @@ import java.lang.reflect.Field;
 
 
 /**
- * Created by Justin on 2018/6/1/001.
- * email：WjqJustin@163.com
  * effect：baselazyfragment
  */
 

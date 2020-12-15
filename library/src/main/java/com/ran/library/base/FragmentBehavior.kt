@@ -1,8 +1,6 @@
 package com.ran.library.base
 
 /**
- * Created by JustinWjq
- * @date 2019/5/14.
  * description：
  */
 interface FragmentBehavior {

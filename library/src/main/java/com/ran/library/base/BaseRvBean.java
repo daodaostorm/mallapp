@@ -1,8 +1,6 @@
 package com.ran.library.base;
 
 /**
- * Created by Justin on 2018/11/14/014 14:02.
- * email：WjqJustin@163.com
  * effect：
  */
 

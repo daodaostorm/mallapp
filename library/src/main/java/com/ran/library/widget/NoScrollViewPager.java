@@ -7,8 +7,6 @@ import android.view.MotionEvent;
 
 
 /**
- * Created by Justin on 2018/6/1/001.
- * email：WjqJustin@163.com
  * effect：禁用水平滑动的ViewPager（一般用于APP主页的ViewPager + Fragment）
  */
 public class NoScrollViewPager extends ViewPager {

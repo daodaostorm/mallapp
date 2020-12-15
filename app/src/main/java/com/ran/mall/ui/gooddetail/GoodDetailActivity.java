@@ -10,10 +10,13 @@ import com.bumptech.glide.Glide;
 import com.github.jdsjlzx.recyclerview.LRecyclerView;
 import com.github.jdsjlzx.recyclerview.LuRecyclerView;
 import com.google.gson.Gson;
+import com.ran.library.widget.NoScrollViewPager;
 import com.ran.mall.R;
 import com.ran.mall.base.BaseActivity_2;
 import com.ran.mall.entity.bean.GoodInfo;
 import com.ran.mall.entity.constant.Constant;
+import com.ran.mall.ui.gooddetail.adapter.GoodDetailViewPagerAdapter;
+import com.ran.mall.utils.LogUtils;
 import com.ran.mall.widget.LoadingView;
 
 import java.util.ArrayList;
@@ -21,7 +24,7 @@ import java.util.ArrayList;
 /**
  *
  */
-public class GoodDetailActivity extends BaseActivity_2 {
+public class GoodDetailActivity extends BaseActivity_2 implements TabLayout.OnTabSelectedListener {
 
     private static final String TAG = GoodDetailActivity.class.getSimpleName();
 
@@ -33,12 +36,14 @@ public class GoodDetailActivity extends BaseActivity_2 {
 
     public String mStrJson;
     public GoodInfo mGoodInfo;
-    public Button mMallButton;
 
+
+    public NoScrollViewPager mViewPager;
     public ImageView mMainTopView;
     public TextView mMainTile;
     public TextView mSubTile;
 
+    public GoodDetailViewPagerAdapter mGoodDetailViewPagerAdapter;
     @Override
     public int getLayoutId() {
         return R.layout.activity_googdetail;
@@ -54,44 +59,24 @@ public class GoodDetailActivity extends BaseActivity_2 {
         mMainTile = (TextView)findViewByIds(R.id.main_title_id);
         mMainTopView = (ImageView)findViewByIds(R.id.main_pic_id);
 
+
         if (mGoodInfo != null){
             Glide.with(this.getApplicationContext()).load(mGoodInfo.getDetailpic1()).into(mMainTopView);
             mMainTile.setText(mGoodInfo.getName());
         }
-        initTabView();
+        initViewPager();
     }
 
-    public void initTabView(){
-
+    public void initViewPager(){
+        mViewPager = (NoScrollViewPager)findViewByIds(R.id.viewpager);
         mTabView = (TabLayout) findViewById(R.id.tablayout);
-        mTabTitle.clear();
-        mTabTitle.add("商品详情");
-        mTabTitle.add("购买记录");
 
-        mTabView.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
+        mGoodDetailViewPagerAdapter = new GoodDetailViewPagerAdapter(this);
+        mViewPager.setAdapter(mGoodDetailViewPagerAdapter);
+        mViewPager.setOffscreenPageLimit(mGoodDetailViewPagerAdapter.getCount());
 
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-        for (int i = 0; i < mTabTitle.size(); i++){
-            if (i == 0) {
-                mTabView.addTab(mTabView.newTab().setText(mTabTitle.get(i)), true);
-            } else {
-                mTabView.addTab(mTabView.newTab().setText(mTabTitle.get(i)), false);
-            }
-        }
+        mTabView.addOnTabSelectedListener(this);
+        mTabView.setupWithViewPager(mViewPager);
     }
 
     public void showLoading() {
@@ -134,13 +119,18 @@ public class GoodDetailActivity extends BaseActivity_2 {
         super.onBackPressed();
     }
 
-    public void bottomClick(View view) {
-        switch (view.getId()) {
-            case R.id.main_type_first:
-                break;
-            case R.id.main_type_my:
-                break;
-        }
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+        LogUtils.i("onTabSelected " + tab.getPosition());
     }
 
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
+    }
 }

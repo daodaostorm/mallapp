@@ -4,8 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 /**
- * Created by Justin on 2018/11/14/014 13:48.
- * email：WjqJustin@163.com
  * effect：
  */
 
