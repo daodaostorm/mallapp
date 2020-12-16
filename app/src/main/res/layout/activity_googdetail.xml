@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white">
 
+
     <TextView
         android:id="@+id/divider1"
         style="@style/divider_horizontal"
@@ -19,20 +20,19 @@
         android:scaleType="centerCrop"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider1"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/divider1" />
 
     <LinearLayout
         android:id="@+id/top_title_ll"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_60dp"
         android:layout_marginTop="@dimen/dimen_20dp"
+        android:orientation="vertical"
         android:paddingLeft="@dimen/dimen_25"
         android:paddingRight="@dimen/dimen_25"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/main_pic_id"
-        android:orientation="vertical">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_pic_id">
 
         <TextView
             android:id="@+id/main_title_id"
@@ -42,7 +42,7 @@
             android:gravity="center_vertical"
             android:text="主标题"
             android:textColor="@color/black"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -50,14 +50,14 @@
             android:layout_marginTop="@dimen/dimen_5dp"
             android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/main_price_id"
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/dimen_15dp"
-            android:gravity="center_vertical"
-            android:text="价格"
-            android:textColor="@color/red"
-            android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/main_price_id"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/dimen_15dp"
+                android:gravity="center_vertical"
+                android:text="价格"
+                android:textColor="@color/red"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/main_origin_price_id"
@@ -67,7 +67,7 @@
                 android:gravity="center_vertical"
                 android:text="价格"
                 android:textColor="@color/color_gray"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -75,12 +75,12 @@
         android:id="@+id/ll_tablayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10dp"
         android:background="@color/color_FFFFFF"
         android:gravity="center_vertical"
-        android:layout_marginTop="@dimen/dimen_10dp"
+        android:orientation="horizontal"
         android:paddingLeft="@dimen/dimen_10dp"
         android:paddingRight="@dimen/dimen_10dp"
-        android:orientation="horizontal"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/top_title_ll">
@@ -91,8 +91,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/color_FFFFFF"
-            app:tabIndicatorColor="@color/black_light"
             app:tabGravity="fill"
+            app:tabIndicatorColor="@color/black_light"
             app:tabMode="fixed"
             app:tabSelectedTextColor="@color/black_light"
             app:tabTextColor="@color/color_333333" />
@@ -106,5 +106,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll_tablayout" />
 
-    <include layout="@layout/buy_layout"/>
+    <include layout="@layout/buy_layout" />
 </android.support.constraint.ConstraintLayout>

@@ -134,7 +134,6 @@
 
             </RelativeLayout>
 
-            <include layout="@layout/main_foot_layout" />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
