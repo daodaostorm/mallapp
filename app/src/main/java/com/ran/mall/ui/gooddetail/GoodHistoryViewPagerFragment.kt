@@ -1,13 +1,12 @@
 package com.ran.mall.ui.gooddetail
 
 import android.support.v7.widget.LinearLayoutManager
-import com.github.jdsjlzx.recyclerview.LuRecyclerViewAdapter
+import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.ran.library.base.BaseLazyViewPagerFragment
 import com.ran.mall.R
 import com.ran.mall.entity.bean.GoodHistoryBean
 import com.ran.mall.ui.adapter.GoodDetailHistoryAdapter
 import kotlinx.android.synthetic.main.activity_gooddetail_history_fragment.*
-import kotlinx.android.synthetic.main.activity_taskdetail_web.*
 
 
 class GoodHistoryViewPagerFragment : BaseLazyViewPagerFragment() {
@@ -18,6 +17,8 @@ class GoodHistoryViewPagerFragment : BaseLazyViewPagerFragment() {
     override fun getTitleBarId(): Int {
         return 0
     }
+
+    val REQUEST_COUNT=10
 
     var detailActivity: GoodDetailActivity? = null
 
@@ -46,11 +47,21 @@ class GoodHistoryViewPagerFragment : BaseLazyViewPagerFragment() {
         val data3 = GoodHistoryBean()
         data3.username = "tesst3"
         data3.usercomment = "太差了。一点都不好用"
+        val data4 = GoodHistoryBean()
+        data4.username = "tesst4"
+        data4.usercomment = "太差不好用"
+        val data5 = GoodHistoryBean()
+        data5.username = "tesst5"
+        data5.usercomment = "太差  不好用"
         mDataList!!.add(data1)
         mDataList!!.add(data2)
         mDataList!!.add(data3)
+        mDataList!!.add(data4)
+        mDataList!!.add(data5)
 
         mGoodHistoryAdapter!!.setDataList(mDataList!!)
+
+        recyclerView_goodhistory.refreshComplete(REQUEST_COUNT)
     }
 
     override fun isLazyLoad(): Boolean {
@@ -62,7 +73,14 @@ class GoodHistoryViewPagerFragment : BaseLazyViewPagerFragment() {
 
         recyclerView_goodhistory.apply {
             layoutManager = LinearLayoutManager(supportActivity)
-            adapter = LuRecyclerViewAdapter(mGoodHistoryAdapter)
+            adapter = LRecyclerViewAdapter(mGoodHistoryAdapter)
+            setArrowImageView(R.drawable.progressbar)
+            setOnLoadMoreListener {
+                refreshComplete(REQUEST_COUNT)
+            }
+            setOnRefreshListener {
+                refreshComplete(REQUEST_COUNT)
+            }
         }
     }
 

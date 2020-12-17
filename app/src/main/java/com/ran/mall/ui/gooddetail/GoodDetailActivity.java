@@ -139,6 +139,12 @@ public class GoodDetailActivity extends BaseActivity_2 implements TabLayout.OnTa
     }
 
     @Override
+    public void responseToBackView() {
+        super.responseToBackView();
+        this.finish();
+    }
+
+    @Override
     public void onTabSelected(TabLayout.Tab tab) {
         LogUtils.i("onTabSelected " + tab.getPosition());
     }

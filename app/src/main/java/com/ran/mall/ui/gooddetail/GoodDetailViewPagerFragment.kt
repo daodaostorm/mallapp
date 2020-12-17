@@ -1,7 +1,7 @@
 package com.ran.mall.ui.gooddetail
 
 import android.support.v7.widget.LinearLayoutManager
-import com.github.jdsjlzx.recyclerview.LuRecyclerViewAdapter
+import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.ran.library.base.BaseLazyViewPagerFragment
 import com.ran.mall.R
 import com.ran.mall.entity.bean.GoodDetailAdapterBean
@@ -13,6 +13,8 @@ class GoodDetailViewPagerFragment : BaseLazyViewPagerFragment() {
     override fun getLayoutId(): Int {
         return R.layout.activity_gooddetail_detail_fragment
     }
+
+    val REQUEST_COUNT=10
 
     override fun getTitleBarId(): Int {
         return 0
@@ -44,6 +46,8 @@ class GoodDetailViewPagerFragment : BaseLazyViewPagerFragment() {
         mDataList!!.add(data3)
 
         mGoodInfoAdapter!!.setDataList(mDataList!!)
+
+        recyclerView_gooddetail.refreshComplete(REQUEST_COUNT)
     }
 
     override fun isLazyLoad(): Boolean {
@@ -55,7 +59,14 @@ class GoodDetailViewPagerFragment : BaseLazyViewPagerFragment() {
 
         recyclerView_gooddetail.apply {
             layoutManager = LinearLayoutManager(supportActivity)
-            adapter = LuRecyclerViewAdapter(mGoodInfoAdapter)
+            adapter = LRecyclerViewAdapter(mGoodInfoAdapter)
+            setArrowImageView(R.drawable.progressbar)
+            setOnLoadMoreListener {
+                refreshComplete(REQUEST_COUNT)
+            }
+            setOnRefreshListener {
+                refreshComplete(REQUEST_COUNT)
+            }
         }
     }
 
