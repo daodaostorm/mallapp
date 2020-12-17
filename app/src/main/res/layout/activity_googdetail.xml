@@ -98,13 +98,20 @@
             app:tabTextColor="@color/color_333333" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/divider_viewpager"
+        style="@style/divider_horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_tablayout" />
+
     <com.ran.library.widget.NoScrollViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll_tablayout" />
+        app:layout_constraintTop_toBottomOf="@+id/divider_viewpager" />
 
     <include layout="@layout/buy_layout" />
 </android.support.constraint.ConstraintLayout>

@@ -1,7 +1,6 @@
 package  com.ran.mall.ui.adapter
 
 import android.content.Context
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -10,10 +9,11 @@ import com.ran.library.base.SuperViewHolder
 import com.ran.mall.R
 import com.ran.mall.entity.bean.GoodInfo
 import com.ran.mall.utils.CheckDoubleClickListener
+import com.ran.mall.utils.LogUtils
 
 /**
  */
-private val TAG = GoodInfoAdapter::class.java.simpleName
+private val TAG = "GoodInfoAdapter"
 
 class GoodInfoAdapter(mContext: Context) : ListBaseAdapter<GoodInfo>(mContext) {
     private var mListener: GoodClickListener? = null
@@ -44,7 +44,7 @@ class GoodInfoAdapter(mContext: Context) : ListBaseAdapter<GoodInfo>(mContext) {
     }
 
     fun setOnItemClickListener(listener: GoodClickListener?) {
-        Log.d(TAG, "setOnItemClickListener: ")
+        LogUtils.d(TAG, "setOnItemClickListener: ")
         this.mListener = listener
     }
 

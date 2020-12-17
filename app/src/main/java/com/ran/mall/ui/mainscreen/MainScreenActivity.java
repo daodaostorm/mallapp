@@ -22,7 +22,6 @@ import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.ui.adapter.EssayInfoAdapter;
 import com.ran.mall.ui.essaydetail.EssayDetailActivity;
 import com.ran.mall.ui.goodlist.GoodListActivity;
-import com.ran.mall.ui.main.TestActivity;
 import com.ran.mall.ui.setting.SettingActivity;
 import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.ToastUtils;

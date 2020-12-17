@@ -3,14 +3,10 @@ package com.ran.mall.ui.gooddetail;
 import android.graphics.Paint;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.github.jdsjlzx.recyclerview.LRecyclerView;
-import com.github.jdsjlzx.recyclerview.LuRecyclerView;
 import com.google.gson.Gson;
 import com.ran.library.widget.NoScrollViewPager;
 import com.ran.mall.R;

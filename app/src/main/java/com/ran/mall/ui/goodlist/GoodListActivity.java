@@ -1,9 +1,7 @@
 package com.ran.mall.ui.goodlist;
 
 import android.content.Intent;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
@@ -21,7 +19,6 @@ import com.ran.mall.entity.bean.GoodInfo;
 import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.ui.adapter.GoodInfoAdapter;
 import com.ran.mall.ui.adapter.TuijianGoodInfoAdapter;
-import com.ran.mall.ui.essaydetail.EssayDetailActivity;
 import com.ran.mall.ui.gooddetail.GoodDetailActivity;
 import com.ran.mall.ui.main.TestActivity;
 import com.ran.mall.ui.mainscreen.MainScreenActivity;

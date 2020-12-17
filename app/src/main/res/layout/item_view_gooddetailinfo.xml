@@ -24,17 +24,4 @@
         app:layout_constraintTop_toBottomOf="@+id/top_item_view"
         />
 
-    <TextView
-        android:id="@+id/main_detail_id"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen_10dp"
-        android:layout_marginLeft="@dimen/dimen_15dp"
-        android:layout_marginRight="@dimen/dimen_15dp"
-        android:ellipsize="end"
-        android:text="1111"
-        android:textColor="@color/color_999999"
-        android:textSize="12sp"
-        app:layout_constraintTop_toBottomOf="@+id/main_pic_id"/>
-
 </android.support.constraint.ConstraintLayout>

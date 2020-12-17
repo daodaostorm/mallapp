@@ -5,9 +5,7 @@ import com.github.jdsjlzx.recyclerview.LuRecyclerViewAdapter
 import com.ran.library.base.BaseLazyViewPagerFragment
 import com.ran.mall.R
 import com.ran.mall.entity.bean.GoodDetailAdapterBean
-import com.ran.mall.entity.bean.GoodInfo
 import com.ran.mall.ui.adapter.GoodDetailInfoAdapter
-import com.ran.mall.ui.adapter.GoodInfoAdapter
 import kotlinx.android.synthetic.main.activity_gooddetail_detail_fragment.*
 
 

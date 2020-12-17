@@ -1,13 +1,7 @@
 package com.ran.mall.ui.gooddetail
 
 import android.app.Activity
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.ran.library.base.SystemManager
 import com.ran.mall.entity.bean.GoodInfo
-import com.ran.mall.https.HttpRequestClient
-import com.ran.mall.system.SystemHttpRequest
-import org.json.JSONObject
 
 /**
  */
