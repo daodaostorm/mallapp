@@ -27,10 +27,8 @@ class GoodDetailInfoAdapter(mContext: Context) : ListBaseAdapter<GoodDetailAdapt
         val bean = mDataList[position]
 
         val mainPic = holder.getView<ImageView>(R.id.main_pic_id)
-        val mainDetail = holder.getView<TextView>(R.id.main_detail_id)
 
         Glide.with(mContext.getApplicationContext()).load(bean.detailpic).into(mainPic)
-        mainDetail.text = bean.detailtext
 
         holder.itemView.setOnClickListener(
 

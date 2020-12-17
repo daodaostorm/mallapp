@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="90dp"
+    android:background="@color/white">
+
+    <View
+        android:id="@+id/top_item_view"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#ddd"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginTop="@dimen/dimen_15dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="username"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/good_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dimen_15dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="默默买下，没有留下痕迹"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="@+id/user_name"
+        app:layout_constraintTop_toBottomOf="@+id/user_name"
+        />
+
+    <ImageView
+        android:id="@+id/uset_type"
+        android:layout_width="@dimen/dimen_20dp"
+        android:layout_height="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_25dp"
+        android:background="@drawable/camera_uploadcount"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:layout_constraintLeft_toRightOf="@id/user_name"
+        app:layout_constraintTop_toTopOf="@id/user_name" />
+
+    <TextView
+        android:id="@+id/good_buy_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dimen_30dp"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="2020-12-17"
+        android:textColor="@color/color_333333"
+        android:textSize="14sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/user_name"
+        />
+    <ImageView
+        android:id="@+id/good_ass"
+        android:layout_width="@dimen/dimen_30dp"
+        android:layout_height="@dimen/dimen_30dp"
+        android:background="@drawable/camera_uploadcount"
+        android:scaleType="centerCrop"
+        android:visibility="visible"
+        app:layout_constraintRight_toRightOf="@id/good_buy_time"
+        app:layout_constraintTop_toTopOf="@id/good_comment" />
+</android.support.constraint.ConstraintLayout>

@@ -7,7 +7,7 @@
 
 
     <com.github.jdsjlzx.recyclerview.LuRecyclerView
-        android:id="@+id/recyclerView_gooddetail"
+        android:id="@+id/recyclerView_goodhistory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dimen_12dp"
