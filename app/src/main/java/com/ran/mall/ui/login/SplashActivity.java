@@ -73,7 +73,7 @@ public class SplashActivity extends BaseActivity_2 {
 
         LinearLayout mView = findViewByIds(R.id.bg);
         AlphaAnimation aa = new AlphaAnimation(0.2f, 1.0f);
-        aa.setDuration(5000);
+        aa.setDuration(3000);
         mView.setAnimation(aa);
         aa.setAnimationListener(new Animation.AnimationListener() {
             @Override

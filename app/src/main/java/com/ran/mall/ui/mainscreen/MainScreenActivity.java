@@ -22,6 +22,7 @@ import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.ui.adapter.EssayInfoAdapter;
 import com.ran.mall.ui.essaydetail.EssayDetailActivity;
 import com.ran.mall.ui.goodlist.GoodListActivity;
+import com.ran.mall.ui.my.MyActivity;
 import com.ran.mall.ui.setting.SettingActivity;
 import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.ToastUtils;
@@ -75,7 +76,7 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
         mBannerView = (BannerView)findViewById(R.id.banner_top);
         mEssayView = (LRecyclerView)findViewById(R.id.recyclerView_Essay);
         mEssayButton = (Button)findViewById(R.id.main_type_first);
-        mEssayButton.setBackground(this.getDrawable(R.drawable.main_tap_first_select));
+        mEssayButton.setBackground(this.getDrawable(R.drawable.main_1_on));
 
         mListBannerDatas = new ArrayList<BannerInfo>();
         mListEssayDatas = new ArrayList<EssayInfo>();
@@ -222,8 +223,8 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
         //super.onBackPressed();
     }
 
-    public void startSettings(){
-        Intent intent = new Intent(this, SettingActivity.class);
+    public void startMy(){
+        Intent intent = new Intent(this, MyActivity.class);
         startActivity(intent);
     }
 
@@ -238,7 +239,7 @@ public class MainScreenActivity extends BaseActivity_2 implements MainScreenCont
                 startMall();
                 break;
             case R.id.main_type_my:
-                startSettings();
+                startMy();
                 break;
         }
     }

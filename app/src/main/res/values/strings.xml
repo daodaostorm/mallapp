@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">服务记录仪</string>
+    <string name="app_name">BlackFriday</string>
     <string name="app_name_ud">中华联合</string>
     <string name="app_name_picc">易定损企业版</string>
     <string name="hint_input_account">请输入工号</string>
@@ -17,6 +17,14 @@
     <string name="ok">确定</string>
 
     <string name="list_empty">暂无信息</string>
+
+    <!--setting page-->
+    <string name="check_my_all_order">查看全部订单</string>
+    <string name="my_order">我的订单</string>
+    <string name="order_not_pay">待付款</string>
+    <string name="order_not_receipt">待收货</string>
+    <string name="order_not_comment">待评价</string>
+
 
     <!-- Key fob list item signal strength labels -->
     <string name="keyfob_signal_strength_weak">Weak Signal</string>

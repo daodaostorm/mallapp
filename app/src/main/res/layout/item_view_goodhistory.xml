@@ -72,9 +72,9 @@
         android:id="@+id/good_ass"
         android:layout_width="@dimen/dimen_30dp"
         android:layout_height="@dimen/dimen_30dp"
-        android:background="@drawable/camera_uploadcount"
+        android:background="@drawable/evaluate_good"
         android:scaleType="centerCrop"
         android:visibility="visible"
-        app:layout_constraintRight_toRightOf="@id/good_buy_time"
-        app:layout_constraintTop_toTopOf="@id/good_comment" />
+        app:layout_constraintRight_toRightOf="@+id/good_buy_time"
+        app:layout_constraintTop_toTopOf="@+id/good_comment" />
 </android.support.constraint.ConstraintLayout>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context="com.ran.mall.ui.my.MyActivity">
+
+    <LinearLayout
+        android:id="@+id/userinfo_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
+        android:background="@drawable/bg_circle_white"
+        android:gravity="center_vertical|left"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dimen_25"
+        android:paddingRight="@dimen/dimen_25"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/uset_type"
+            android:layout_width="@dimen/dimen_20dp"
+            android:layout_height="@dimen/dimen_20dp"
+            android:background="@drawable/ic_login_username"
+            android:scaleType="centerCrop"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/userinfo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dimen_20dp"
+            android:text="username"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_14sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/order_all_ll"
+        android:layout_width="match_parent"
+        android:paddingLeft="@dimen/dimen_20dp"
+        android:paddingRight="@dimen/dimen_20dp"
+        android:paddingTop="@dimen/dimen_20dp"
+        android:gravity="center"
+        android:layout_height="@dimen/dimen_40dp"
+        android:layout_marginTop="@dimen/dimen_10dp"
+        android:background="@drawable/ripplestate"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userinfo_ll">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_order"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/dimen_14sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_my_all_order"
+            android:textColor="@color/color_gray"
+            android:textSize="@dimen/dimen_12sp" />
+
+        <ImageView
+            android:layout_width="@dimen/dimen_10dp"
+            android:layout_height="@dimen/dimen_10dp"
+            android:layout_marginLeft="@dimen/dimen_10dp"
+            android:scaleType="centerCrop"
+            android:background="@drawable/icon_black_right_back" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/order_type_ll"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dimen_80dp"
+        android:paddingLeft="@dimen/dimen_20dp"
+        android:paddingRight="@dimen/dimen_20dp"
+        android:background="@drawable/ripplestate"
+        android:gravity="center_vertical|left"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/order_all_ll">
+
+        <LinearLayout
+            android:id="@+id/order_not_pay_ll"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_wait_pay"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/order_not_pay"
+                android:textColor="@color/color_gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/order_wait_receipt_ll"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_wait_receipt"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/order_not_receipt"
+                android:textColor="@color/color_gray"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/order_wait_comment_ll"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_80dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_wait_comment" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/order_not_comment"
+                android:textColor="@color/black_light"/>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <include layout="@layout/main_foot_layout" />
+</android.support.constraint.ConstraintLayout>

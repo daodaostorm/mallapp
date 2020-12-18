@@ -22,6 +22,7 @@ import com.ran.mall.ui.adapter.TuijianGoodInfoAdapter;
 import com.ran.mall.ui.gooddetail.GoodDetailActivity;
 import com.ran.mall.ui.main.TestActivity;
 import com.ran.mall.ui.mainscreen.MainScreenActivity;
+import com.ran.mall.ui.my.MyActivity;
 import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.ToastUtils;
 import com.ran.mall.widget.LoadingView;
@@ -76,7 +77,7 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
         mGoodlistView = (LRecyclerView)findViewById(R.id.recyclerView_Good);
         mTuijianlistView = (LuRecyclerView)findViewById(R.id.recyclerView_Tuijian);
         mMallButton = (Button)findViewById(R.id.main_type_mall);
-        mMallButton.setBackground(this.getDrawable(R.drawable.main_tap_record_select));
+        mMallButton.setBackground(this.getDrawable(R.drawable.main_2_on));
 
         mListGoodDatas = new ArrayList<GoodInfo>();
 
@@ -221,8 +222,8 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
         //super.onBackPressed();
     }
 
-    public void startSettings(){
-        Intent intent = new Intent(this, TestActivity.class);
+    public void startMy(){
+        Intent intent = new Intent(this, MyActivity.class);
         startActivity(intent);
     }
 
@@ -237,7 +238,7 @@ public class GoodListActivity extends BaseActivity_2 implements GoodListContract
                 startEssay();
                 break;
             case R.id.main_type_my:
-                startSettings();
+                startMy();
                 break;
         }
     }
