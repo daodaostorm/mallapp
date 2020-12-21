@@ -11,8 +11,8 @@
         android:id="@+id/userinfo_ll"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dimen_80dp"
-        android:layout_marginTop="@dimen/dimen_20dp"
         android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginTop="@dimen/dimen_20dp"
         android:layout_marginRight="@dimen/dimen_10dp"
         android:background="@drawable/bg_circle_white"
         android:gravity="center_vertical|left"
@@ -44,128 +44,137 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/order_all_ll"
+        android:id="@+id/order_all_type_ll"
         android:layout_width="match_parent"
-        android:paddingLeft="@dimen/dimen_20dp"
-        android:paddingRight="@dimen/dimen_20dp"
-        android:paddingTop="@dimen/dimen_20dp"
-        android:gravity="center"
-        android:layout_height="@dimen/dimen_40dp"
-        android:layout_marginTop="@dimen/dimen_10dp"
-        android:background="@drawable/ripplestate"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_circle_white"
+        android:gravity="center_vertical|left"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/dimen_20dp"
+        android:layout_marginLeft="@dimen/dimen_10dp"
+        android:layout_marginRight="@dimen/dimen_10dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userinfo_ll">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/my_order"
-            android:textColor="@color/black_light"
-            android:textSize="@dimen/dimen_14sp" />
+        <LinearLayout
+            android:id="@+id/order_all_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40dp"
+            android:layout_marginTop="@dimen/dimen_10dp"
+            android:background="@drawable/ripplestate"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_20dp"
+            android:paddingTop="@dimen/dimen_20dp"
+            android:paddingRight="@dimen/dimen_20dp">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/my_order"
+                android:textColor="@color/black_light"
+                android:textSize="@dimen/dimen_14sp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/check_my_all_order"
-            android:textColor="@color/color_gray"
-            android:textSize="@dimen/dimen_12sp" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1" />
 
-        <ImageView
-            android:layout_width="@dimen/dimen_10dp"
-            android:layout_height="@dimen/dimen_10dp"
-            android:layout_marginLeft="@dimen/dimen_10dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/icon_black_right_back" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/check_my_all_order"
+                android:textColor="@color/color_gray"
+                android:textSize="@dimen/dimen_12sp" />
+
+            <ImageView
+                android:layout_width="@dimen/dimen_10dp"
+                android:layout_height="@dimen/dimen_10dp"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:background="@drawable/icon_black_right_back"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/order_type_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_90dp"
+            android:background="@drawable/ripplestate"
+            android:gravity="center_vertical|left"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_20dp"
+            android:paddingRight="@dimen/dimen_20dp"
+            android:paddingBottom="@dimen/dimen_20dp">
+
+            <LinearLayout
+                android:id="@+id/order_not_pay_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_90dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_30dp"
+                    android:layout_height="@dimen/dimen_30dp"
+                    android:background="@drawable/ic_wait_pay" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/order_not_pay"
+                    android:textColor="@color/color_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/order_wait_receipt_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_90dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_30dp"
+                    android:layout_height="@dimen/dimen_30dp"
+                    android:background="@drawable/ic_wait_receipt" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/order_not_receipt"
+                    android:textColor="@color/color_gray" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/order_wait_comment_ll"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_90dp"
+                android:layout_marginTop="@dimen/dimen_10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="@dimen/dimen_30dp"
+                    android:layout_height="@dimen/dimen_30dp"
+                    android:background="@drawable/ic_wait_comment" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/order_not_comment"
+                    android:textColor="@color/black_light" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/order_type_ll"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dimen_80dp"
-        android:paddingLeft="@dimen/dimen_20dp"
-        android:paddingRight="@dimen/dimen_20dp"
-        android:background="@drawable/ripplestate"
-        android:gravity="center_vertical|left"
-        android:orientation="horizontal"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/order_all_ll">
-
-        <LinearLayout
-            android:id="@+id/order_not_pay_ll"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dimen_80dp"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_wait_pay"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/order_not_pay"
-                android:textColor="@color/color_gray"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/order_wait_receipt_ll"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dimen_80dp"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/ic_wait_receipt"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/order_not_receipt"
-                android:textColor="@color/color_gray"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/order_wait_comment_ll"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/dimen_80dp"
-            android:layout_marginTop="@dimen/dimen_10dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_wait_comment" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/order_not_comment"
-                android:textColor="@color/black_light"/>
-        </LinearLayout>
-    </LinearLayout>
-
 
     <include layout="@layout/main_foot_layout" />
 </android.support.constraint.ConstraintLayout>

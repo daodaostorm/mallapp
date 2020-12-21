@@ -126,10 +126,10 @@ public class SystemCrashHandler extends SystemBase implements Thread.UncaughtExc
         if (Environment.getExternalStorageState().equals(
                 Environment.MEDIA_MOUNTED)) {// 优先保存到SD卡中
             PATH_LOGCAT = Environment.getExternalStorageDirectory()
-                    .getAbsolutePath() + File.separator + "mallapp";
+                    .getAbsolutePath() + File.separator + "mallappcrash" + File.separator;
         } else {// 如果SD卡不存在，就保存到本应用的目录下
             PATH_LOGCAT = mContext.getFilesDir().getAbsolutePath()
-                    + File.separator + "mallapp";
+                    + File.separator + "mallappcrash" + File.separator;
         }
         File file = new File(PATH_LOGCAT);
         if (!file.exists()) {
