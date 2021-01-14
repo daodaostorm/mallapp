@@ -49,7 +49,9 @@
     <dimen name="dimen_90dp">90dp</dimen>
     <dimen name="dimen_100dp">100dp</dimen>
     <dimen name="dimen_110dp">110dp</dimen>
+    <dimen name="dimen_130dp">130dp</dimen>
     <dimen name="dimen_150dp">150dp</dimen>
+    <dimen name="dimen_160dp">160dp</dimen>
     <dimen name="dimen_200dp">200dp</dimen>
     <dimen name="dimen_220dp">220dp</dimen>
     <dimen name="dimen_250dp">250dp</dimen>

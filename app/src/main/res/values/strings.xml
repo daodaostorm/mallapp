@@ -21,6 +21,7 @@
     <!--setting page-->
     <string name="check_my_all_order">查看全部订单</string>
     <string name="my_order">我的订单</string>
+    <string name="my_req_login">登录 / 注册</string>
     <string name="order_not_pay">待付款</string>
     <string name="order_not_receipt">待收货</string>
     <string name="order_not_comment">待评价</string>
