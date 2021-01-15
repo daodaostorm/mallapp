@@ -5,6 +5,7 @@ import android.view.View
 import com.ran.mall.R
 import com.ran.mall.base.BaseActivity_2
 import com.ran.mall.ui.goodlist.GoodListActivity
+import com.ran.mall.ui.login.LoginActivity
 import com.ran.mall.ui.mainscreen.MainScreenActivity
 import com.ran.mall.utils.PreferenceUtils
 import com.ran.mall.utils.ToastUtils
@@ -84,6 +85,11 @@ class MyActivity : BaseActivity_2(), MyContract.View {
         this.startActivity(intent)
     }
 
+    fun startToLoginOrDetail(){
+        val intent = Intent(this, LoginActivity::class.java)
+        this.startActivity(intent)
+    }
+
     fun bottomClick(view: View){
         when(view.id){
             R.id.main_type_first -> {
@@ -91,6 +97,9 @@ class MyActivity : BaseActivity_2(), MyContract.View {
             }
             R.id.main_type_mall -> {
                 startToMallActivity()
+            }
+            R.id.userinfo_name -> {
+                startToLoginOrDetail()
             }
         }
     }

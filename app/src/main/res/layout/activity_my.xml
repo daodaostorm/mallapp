@@ -25,7 +25,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_70dp"
+            android:layout_height="@dimen/dimen_80dp"
             android:gravity="center_vertical|left"
             android:orientation="horizontal">
         <ImageView
@@ -42,23 +42,23 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/dimen_20dp"
             android:text="@string/my_req_login"
+            android:onClick="bottomClick"
             android:textColor="@color/black"
-            android:textSize="@dimen/dimen_14sp" />
+            android:textSize="@dimen/dimen_15sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_60dp"
+            android:layout_height="@dimen/dimen_50dp"
             android:background="@drawable/ripplestate"
             android:gravity="center_vertical|left"
             android:orientation="horizontal"
             android:paddingLeft="@dimen/dimen_20dp"
-            android:paddingRight="@dimen/dimen_20dp"
-            android:paddingBottom="@dimen/dimen_10dp">
+            android:paddingRight="@dimen/dimen_20dp">
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/dimen_50dp"
+                android:layout_height="@dimen/dimen_40dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -80,7 +80,7 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/dimen_50dp"
+                android:layout_height="@dimen/dimen_40dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -101,7 +101,7 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_height="@dimen/dimen_50dp"
+                android:layout_height="@dimen/dimen_40dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical">
@@ -342,7 +342,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="@dimen/dimen_14sp"
-                android:text="账号设置" />
+                android:text="软件设置" />
 
             <View
                 android:layout_width="0dp"
