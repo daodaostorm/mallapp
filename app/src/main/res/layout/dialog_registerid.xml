@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="@dimen/dimen_300dp"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_centerInParent="true">
+
+        <View
+            android:id="@+id/divider_top"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/dialog_title"
+            android:layout_width="@dimen/dimen_80dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/dimen_20dp"
+            android:gravity="center"
+            android:text="注册账号"
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen_16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_top"/>
+
+        <LinearLayout
+            android:id="@+id/regist_id_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            android:layout_marginTop="@dimen/dimen_30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialog_title">
+
+
+
+            <TextView
+                android:id="@+id/regist_tv_id"
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="账        号:"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <EditText
+                android:id="@+id/regist_tv_text"
+                android:layout_width="@dimen/dimen_130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:gravity="center_vertical|left"
+                android:hint="请输入"
+                android:textColor="@color/color_575757"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/dimen_14sp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_regist_pass"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/regist_id_ll" />
+
+        <LinearLayout
+            android:id="@+id/regist_pass_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_regist_pass">
+
+            <TextView
+                android:id="@+id/regist_pass_tv_id"
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="密        码:"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <EditText
+                android:id="@+id/regist_pass_tv_text"
+                android:layout_width="@dimen/dimen_130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:gravity="center_vertical|left"
+                android:hint="请输入"
+                android:textColor="@color/color_575757"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/dimen_14sp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_confirm_regist_pass"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/regist_pass_ll" />
+
+        <LinearLayout
+            android:id="@+id/regist_conform_pass_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_confirm_regist_pass">
+
+            <TextView
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="确认密码:"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <EditText
+                android:id="@+id/regist_conform_pass_tv_text"
+                android:layout_width="@dimen/dimen_130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:gravity="center_vertical|left"
+                android:hint="请输入"
+                android:textColor="@color/color_575757"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/dimen_14sp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_phone"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/regist_conform_pass_ll" />
+
+        <LinearLayout
+            android:id="@+id/phone_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_phone">
+
+            <TextView
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="手机号码:"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <EditText
+                android:id="@+id/phone_tv_text"
+                android:layout_width="@dimen/dimen_130dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:gravity="center_vertical|left"
+                android:hint="忘记密码恢复时使用"
+                android:textColor="@color/color_575757"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/dimen_14sp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_confirm_code"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phone_ll" />
+
+        <LinearLayout
+            android:id="@+id/confirm_code_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_50dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_confirm_code">
+
+            <TextView
+                android:layout_width="@dimen/dimen_80dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text="验 证 码:"
+                android:textColor="@color/color_575757"
+                android:textSize="@dimen/dimen_14sp" />
+
+            <EditText
+                android:id="@+id/confirm_code_tv_text"
+                android:layout_width="@dimen/dimen_50dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="@null"
+                android:gravity="center_vertical|left"
+                android:hint="请输入"
+                android:textColor="@color/color_575757"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/dimen_14sp" />
+            <ImageView
+                android:id="@+id/confirm_code_checkstatus_id"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_width="@dimen/dimen_20dp"
+                android:layout_height="@dimen/dimen_20dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/imge_ok" />
+            <ImageView
+                android:id="@+id/confirm_code_pic_id"
+                android:layout_marginLeft="@dimen/dimen_10dp"
+                android:layout_width="@dimen/dimen_60dp"
+                android:layout_height="@dimen/dimen_30dp"
+                android:scaleType="centerCrop"
+                android:layout_gravity="center_vertical" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/regist_notice_ll"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_40dp"
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_25"
+            android:paddingRight="@dimen/dimen_25"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/confirm_code_ll">
+
+            <TextView
+                android:id="@+id/notice_message_tv_text"
+                android:layout_width="@dimen/dimen_150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical|left"
+                android:text=""
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/dimen_12sp" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/divider_btn_list"
+            style="@style/divider_horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/regist_notice_ll" />
+
+        <LinearLayout
+            android:id="@+id/btn_list_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider_btn_list">
+
+            <TextView
+                android:id="@+id/leftContent"
+                android:layout_width="match_parent"
+                android:layout_height="44dp"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="取消"
+                android:textColor="@color/color_575757"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/divider"
+                style="@style/divider_vertical"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/dialog_selector_right"
+                android:clickable="true"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="注册"
+                android:textColor="@color/color_007aff"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</RelativeLayout>

@@ -24,17 +24,20 @@ import com.ran.mall.system.SystemCommon;
 import com.ran.mall.system.SystemHttpRequest;
 import com.ran.mall.ui.mainscreen.MainScreenActivity;
 import com.ran.mall.utils.InfoUtils;
+import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.PreferenceUtils;
 import com.ran.mall.utils.SPUtils;
 import com.ran.mall.utils.ToastUtils;
 import com.ran.mall.widget.CustomDialog;
 import com.ran.mall.widget.LoadingView;
+import com.ran.mall.widget.RegisterDialog;
 
 /**
  * Created by pc on 2017/10/18.
  */
 public class LoginActivity extends BaseActivity_2 implements View.OnClickListener, LoginContract.View {
     private Button mBtnLogin;
+    private Button mBtnRegister;
     private LoadingView mLoadingView;
     private EditText mEditAccount;
     private EditText mEditPassWord;
@@ -63,6 +66,7 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
     public void initView() {
 
         mBtnLogin = findViewByIds(R.id.btn_login);
+        mBtnRegister = findViewByIds(R.id.btn_register_id);
         mEditAccount = findViewByIds(R.id.etAccount);
         mEditPassWord = findViewByIds(R.id.etPassWord);
 
@@ -99,6 +103,7 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
 //        getTitleBar().getLeftView().setVisibility(View.INVISIBLE);
         mLoadingView = new LoadingView(LoginActivity.this, getResources().getString(R.string.loading_login), LoadingView.SHOWLOADING);
         mBtnLogin.setOnClickListener(this);
+        mBtnRegister.setOnClickListener(this);
 
     }
 
@@ -137,6 +142,16 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    public void showRegisterDialog(){
+
+        getSystem(SystemCommon.class).showRegisterDialog(this, new RegisterDialog.onDialogListenerCallBack() {
+            @Override
+            public void onOkCliclck(String userId, String userPass, String userPhone) {
+                LogUtils.i("userid: " + userId);
+            }
+        });
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -144,6 +159,9 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
                 mAccount = mEditAccount.getText().toString().trim();
                 mPassWord = mEditPassWord.getText().toString().trim();
                 mLoginPresenter.requestServerLogin();
+                break;
+            case R.id.btn_register_id:
+                showRegisterDialog();
                 break;
             default:
                 break;
