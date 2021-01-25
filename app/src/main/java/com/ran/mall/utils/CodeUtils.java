@@ -90,7 +90,7 @@ public class CodeUtils {
         for (int i = 0; i < DEFAULT_CODE_LENGTH; i++) {
             mBuilder.append(CHARS[mRandom.nextInt(CHARS.length)]);
         }
-        return mBuilder.toString();
+        return mBuilder.toString().toLowerCase();
     }
 
     //生成干扰线

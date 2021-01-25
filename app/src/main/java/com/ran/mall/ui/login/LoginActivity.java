@@ -1,5 +1,6 @@
 package com.ran.mall.ui.login;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -17,12 +18,16 @@ import com.ran.mall.AssessConfig;
 import com.ran.mall.BuildConfig;
 import com.ran.mall.R;
 import com.ran.mall.base.BaseActivity_2;
+import com.ran.mall.entity.bean.UserEnCodeBean;
+import com.ran.mall.entity.bean.UserRegisterBean;
 import com.ran.mall.entity.bean.UserRequestMoudle;
 import com.ran.mall.entity.constant.Constant;
 import com.ran.mall.entity.constant.SPConstant;
 import com.ran.mall.system.SystemCommon;
 import com.ran.mall.system.SystemHttpRequest;
 import com.ran.mall.ui.mainscreen.MainScreenActivity;
+import com.ran.mall.utils.CommonUtils;
+import com.ran.mall.utils.DateUtils;
 import com.ran.mall.utils.InfoUtils;
 import com.ran.mall.utils.LogUtils;
 import com.ran.mall.utils.PreferenceUtils;
@@ -45,6 +50,8 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
     private String mAccount;
     private String mPassWord;
     private String mDeviceId = "";
+    private RegisterDialog mRegisterDialog = null;
+
     private static final String TAG = LoginActivity.class.getSimpleName();
 
     @Override
@@ -142,15 +149,28 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+
     public void showRegisterDialog(){
 
-        getSystem(SystemCommon.class).showRegisterDialog(this, new RegisterDialog.onDialogListenerCallBack() {
+        mRegisterDialog = new RegisterDialog(this);
+        mRegisterDialog.setCanceledOnTouchOutside(true);
+        mRegisterDialog.setOnDialohClickListener(new RegisterDialog.onDialogListenerCallBack() {
             @Override
             public void onOkCliclck(String userId, String userPass, String userPhone) {
                 LogUtils.i("userid: " + userId);
+                LogUtils.i("Origin Pass: " + userPass);
+                UserRegisterBean createBean = new UserRegisterBean();
+                createBean.setUsername(userId);
+                LogUtils.i("Pass: " + CommonUtils.encPass(userId, userPass));
+                createBean.setPassword(CommonUtils.encPass(userId, userPass));
+                createBean.setPhone(userPhone);
+                createBean.setTimestamp(DateUtils.getSystemTimestamp());
+                mLoginPresenter.requestRegister(new Gson().toJson(createBean));
             }
         });
+        mRegisterDialog.show();
     }
+
 
     @Override
     public void onClick(View v) {
@@ -205,6 +225,29 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
         } else {
             showErrorTip(err);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mRegisterDialog != null && mRegisterDialog.isShowing()) {
+            mRegisterDialog.dismiss();
+        }
+    }
+
+    @Override
+    public void RegisterSuccess() {
+
+        if (mRegisterDialog != null && mRegisterDialog.isShowing()) {
+            mRegisterDialog.dismiss();
+        }
+        ToastUtils.shortShow("账号注册成功!");
+
+    }
+
+    @Override
+    public void RegisterFail(String err, int errCode) {
+        ToastUtils.shortShow(err);
     }
 
     @Override

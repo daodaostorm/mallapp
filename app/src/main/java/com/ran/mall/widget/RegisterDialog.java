@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.ran.mall.R;
 import com.ran.mall.utils.CodeUtils;
+import com.ran.mall.utils.LogUtils;
 
 
 /**
@@ -55,15 +56,15 @@ public class RegisterDialog extends Dialog {
     private void initView() {
         mUserIdEditText = (EditText) findViewById(R.id.regist_tv_text);
         mUserIdEditText.setText("");
-        mUserPassEditText = (EditText) findViewById(R.id.regist_tv_text);
+        mUserPassEditText = (EditText) findViewById(R.id.regist_pass_tv_text);
         mUserPassEditText.setText("");
         mUserPassEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        mUserRePassEditText = (EditText) findViewById(R.id.regist_tv_text);
+        mUserRePassEditText = (EditText) findViewById(R.id.regist_conform_pass_tv_text);
         mUserRePassEditText.setText("");
         mUserRePassEditText.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        mUserPhoneEditText = (EditText) findViewById(R.id.regist_tv_text);
+        mUserPhoneEditText = (EditText) findViewById(R.id.phone_tv_text);
         mUserPhoneEditText.setText("");
-        mUserConfirmCodeEditText = (EditText) findViewById(R.id.regist_tv_text);
+        mUserConfirmCodeEditText = (EditText) findViewById(R.id.confirm_code_tv_text);
         mUserConfirmCodeEditText.setText("");
         mUserConfirmCodeImage = (ImageView) findViewById(R.id.confirm_code_pic_id);
 
@@ -72,6 +73,7 @@ public class RegisterDialog extends Dialog {
         mConfirmCodeBitmap = CodeUtils.getInstance().createBitmap();
         mStrImageCodeResult = CodeUtils.getInstance().getCode();
         mUserConfirmCodeImage.setImageBitmap(mConfirmCodeBitmap);
+        LogUtils.i("CodeResult: " + mStrImageCodeResult);
 
         mUserConfirmCodeStatusImage = (ImageView) findViewById(R.id.confirm_code_checkstatus_id);
         mUserConfirmCodeStatusImage.setVisibility(View.INVISIBLE);
@@ -84,6 +86,7 @@ public class RegisterDialog extends Dialog {
                 mConfirmCodeBitmap = CodeUtils.getInstance().createBitmap();
                 mStrImageCodeResult = CodeUtils.getInstance().getCode();
                 mUserConfirmCodeImage.setImageBitmap(mConfirmCodeBitmap);
+                LogUtils.i("CodeResult: " + mStrImageCodeResult);
             }
         });
 
@@ -102,9 +105,11 @@ public class RegisterDialog extends Dialog {
                 String userPass = mUserPassEditText.getText().toString();
                 String userrePass = mUserRePassEditText.getText().toString();
                 String userPhone = mUserPhoneEditText.getText().toString();
-                String userConfirmCode = mUserConfirmCodeEditText.getText().toString();
+                String userConfirmCode = mUserConfirmCodeEditText.getText().toString().toLowerCase();
 
-                if (userPass.length() <= 8){
+                LogUtils.i("ConfirmCode: " + userConfirmCode);
+
+                if (userPass.length() < 8){
                     mNoticeMessage.setText("密码必须不少于8个字符!");
                     return;
                 } else if (!userPass.equals(userrePass)){

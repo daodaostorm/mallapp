@@ -515,18 +515,6 @@ public class SystemCommon extends SystemBase {
         dialog.show();
     }
 
-    public void showRegisterDialog(Context context, final RegisterDialog.onDialogListenerCallBack callBack) {
-        RegisterDialog dialog = new RegisterDialog(context);
-        dialog.setCanceledOnTouchOutside(true);
-        dialog.setOnDialohClickListener(new RegisterDialog.onDialogListenerCallBack() {
-            @Override
-            public void onOkCliclck(String userId, String userPass, String userPhone) {
-                callBack.onOkCliclck(userId, userPass, userPhone);
-            }
-        });
-        dialog.show();
-    }
-
     public boolean isOritation(Context context) {
         int flag = 0;
         try {

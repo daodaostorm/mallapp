@@ -642,6 +642,9 @@ public class DateUtils {
 		return date.getTime();
 	}
 
+	public static String getSystemTimestamp(){
+		return String.valueOf(new Date().getTime());
+	}
 
 	public static String getImeYyyymmddhhcmm(String timeStamp) {
 		long time = 0;

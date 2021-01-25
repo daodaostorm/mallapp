@@ -13,6 +13,10 @@ public interface LoginContract {
 
         void LoginBFail(String err, int errCode);
 
+        void RegisterSuccess();
+
+        void RegisterFail(String err, int errCode);
+
         SystemHttpRequest getSystemRequest();
 
         String getRequestBody();

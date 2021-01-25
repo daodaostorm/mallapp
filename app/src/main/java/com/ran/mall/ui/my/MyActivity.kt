@@ -7,6 +7,8 @@ import com.ran.mall.base.BaseActivity_2
 import com.ran.mall.ui.goodlist.GoodListActivity
 import com.ran.mall.ui.login.LoginActivity
 import com.ran.mall.ui.mainscreen.MainScreenActivity
+import com.ran.mall.utils.CommonUtils
+import com.ran.mall.utils.LogUtils
 import com.ran.mall.utils.PreferenceUtils
 import com.ran.mall.utils.ToastUtils
 import com.ran.mall.widget.CustomDialog
@@ -45,7 +47,6 @@ class MyActivity : BaseActivity_2(), MyContract.View {
         mPresenter = MyPresenter(this, this)
 
         main_type_my.background = resources.getDrawable(R.drawable.main_5_on)
-
 
         val userInfo = PreferenceUtils.getUser()
         if (userInfo != null){

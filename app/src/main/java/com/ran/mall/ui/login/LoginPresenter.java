@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.google.gson.Gson;
+import com.ran.mall.entity.bean.UserRegisterBean;
 import com.ran.mall.entity.bean.UserRequestMoudle;
 import com.ran.mall.https.HttpRequestClient;
 import com.ran.mall.utils.LogUtils;
@@ -70,5 +71,44 @@ public class LoginPresenter implements LoginContract.PresenterI {
         });
     }
 
+    /**
+     * create user
+     */
+    public void requestRegister(String strJsonInfo) {
+        if (mLoginContract == null) {
+            return;
+        }
+
+        final UserRegisterBean user = new Gson().fromJson(strJsonInfo, UserRegisterBean.class);
+
+        mLoginContract.showLoading();
+        mLoginContract.getSystemRequest().responseRegister(strJsonInfo, new HttpRequestClient.RequestHttpCallBack() {
+            @Override
+            public void onSuccess(String json) {
+
+                if (!TextUtils.isEmpty(json)) {
+                    mLoginContract.RegisterSuccess();
+
+                } else {
+                    mLoginContract.LoginBFail("result empty", -1);
+                }
+
+            }
+
+            @Override
+            public void onFail(final String err, final int code) {
+                Log.d(TAG, "responseLoginAssess: " + err + "---" + code);
+
+                mContext.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        mLoginContract.hideLoading();
+                        mLoginContract.LoginBFail(err, code);
+                    }
+                });
+            }
+        });
+    }
 
 }
