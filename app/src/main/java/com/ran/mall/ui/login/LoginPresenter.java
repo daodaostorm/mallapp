@@ -85,28 +85,14 @@ public class LoginPresenter implements LoginContract.PresenterI {
         mLoginContract.getSystemRequest().responseRegister(strJsonInfo, new HttpRequestClient.RequestHttpCallBack() {
             @Override
             public void onSuccess(String json) {
-
-                if (!TextUtils.isEmpty(json)) {
-                    mLoginContract.RegisterSuccess();
-
-                } else {
-                    mLoginContract.LoginBFail("result empty", -1);
-                }
-
+                mLoginContract.RegisterSuccess();
             }
 
             @Override
             public void onFail(final String err, final int code) {
                 Log.d(TAG, "responseLoginAssess: " + err + "---" + code);
 
-                mContext.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        mLoginContract.hideLoading();
-                        mLoginContract.LoginBFail(err, code);
-                    }
-                });
+                mLoginContract.LoginBFail(err, code);
             }
         });
     }

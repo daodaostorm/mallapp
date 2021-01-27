@@ -9,6 +9,21 @@ public class DateFormatUtils {
     private static final String DATE_FORMAT_PATTERN_YMD = "yyyy/MM/dd";
     private static final String DATE_FORMAT_PATTERN_YMD_HM = "yyyy-MM-dd HH:mm";
 
+
+    public static String getNowDate() {
+
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        return df.format(date);
+    }
+
+    public static String getNowDateHour() {
+
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("MMddHH");
+        return df.format(date);
+    }
+
     /**
      * 时间戳转字符串
      *

@@ -27,6 +27,7 @@ import com.ran.mall.system.SystemCommon;
 import com.ran.mall.system.SystemHttpRequest;
 import com.ran.mall.ui.mainscreen.MainScreenActivity;
 import com.ran.mall.utils.CommonUtils;
+import com.ran.mall.utils.DateFormatUtils;
 import com.ran.mall.utils.DateUtils;
 import com.ran.mall.utils.InfoUtils;
 import com.ran.mall.utils.LogUtils;
@@ -238,16 +239,31 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
     @Override
     public void RegisterSuccess() {
 
-        if (mRegisterDialog != null && mRegisterDialog.isShowing()) {
-            mRegisterDialog.dismiss();
-        }
-        ToastUtils.shortShow("账号注册成功!");
+        runOnUiThread(new Runnable() {
+            @Override public void run() {
+                hideLoading();
+                if (mRegisterDialog != null && mRegisterDialog.isShowing()) {
+                    mRegisterDialog.dismiss();
+                }
+                ToastUtils.shortShow("账号注册成功!");
+            }
+        });
+
+
 
     }
 
     @Override
     public void RegisterFail(String err, int errCode) {
-        ToastUtils.shortShow(err);
+
+        runOnUiThread(new Runnable() {
+            @Override public void run() {
+                hideLoading();
+                ToastUtils.shortShow(err);
+            }
+        });
+
+
     }
 
     @Override
@@ -268,9 +284,10 @@ public class LoginActivity extends BaseActivity_2 implements View.OnClickListene
         }
         //String rid = JPushInterface.getRegistrationID(getApplicationContext());
 
+        String strHour = "-_-" + DateFormatUtils.getNowDateHour();
         UserRequestMoudle userRequest = new UserRequestMoudle();
         userRequest.setUsername(mAccount);
-        userRequest.setPassword(mPassWord);
+        userRequest.setPassword(CommonUtils.encrypt(mPassWord + strHour));
         userRequest.setDeviceID(mDeviceId);
         return new Gson().toJson(userRequest);
     }
