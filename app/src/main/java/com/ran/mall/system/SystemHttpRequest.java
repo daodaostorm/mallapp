@@ -95,4 +95,14 @@ public class SystemHttpRequest extends SystemBase {
         HttpRequestClient.getIntance().get(builder.toString(), callback);
     }
 
+    /**
+     * getAddressList
+     **/
+    public void getAddressList(String userId, String token, HttpRequestClient.RequestHttpCallBack callback) {
+        String api = "/address/getAddressinfo?userid=";
+        StringBuilder builder = new StringBuilder(getUri() + API_URL);
+        builder.append(api);
+        builder.append(userId);
+        HttpRequestClient.getIntance().get_token(builder.toString(), token, callback);
+    }
 }

@@ -4,14 +4,11 @@ import android.content.Intent
 import android.view.View
 import com.ran.mall.R
 import com.ran.mall.base.BaseActivity_2
+import com.ran.mall.entity.bean.UserBean
 import com.ran.mall.ui.goodlist.GoodListActivity
 import com.ran.mall.ui.login.LoginActivity
 import com.ran.mall.ui.mainscreen.MainScreenActivity
-import com.ran.mall.utils.CommonUtils
-import com.ran.mall.utils.LogUtils
 import com.ran.mall.utils.PreferenceUtils
-import com.ran.mall.utils.ToastUtils
-import com.ran.mall.widget.CustomDialog
 import kotlinx.android.synthetic.main.activity_my.*
 import kotlinx.android.synthetic.main.main_foot_layout.*
 
@@ -39,6 +36,8 @@ class MyActivity : BaseActivity_2(), MyContract.View {
 
     private var mPresenter: MyContract.Presenter? = null
 
+    private var mUserInfo: UserBean ?= null
+
     override fun getLayoutId(): Int {
         return R.layout.activity_my
     }
@@ -48,21 +47,10 @@ class MyActivity : BaseActivity_2(), MyContract.View {
 
         main_type_my.background = resources.getDrawable(R.drawable.main_5_on)
 
-        val userInfo = PreferenceUtils.getUser()
-        if (userInfo != null){
-            userinfo_name.text = userInfo.user
+        mUserInfo = PreferenceUtils.getUser()
+        if (mUserInfo != null){
+            userinfo_name.text = mUserInfo?.user
         }
-
-    }
-
-    fun startToConnectSetting(){
-
-    }
-    fun startToDeviceDetail(){
-
-    }
-
-    fun startToDevice(){
 
     }
 
@@ -87,8 +75,12 @@ class MyActivity : BaseActivity_2(), MyContract.View {
     }
 
     fun startToLoginOrDetail(){
-        val intent = Intent(this, LoginActivity::class.java)
-        this.startActivity(intent)
+
+        if (mUserInfo == null) {
+            val intent = Intent(this, LoginActivity::class.java)
+            this.startActivity(intent)
+        }
+
     }
 
     fun bottomClick(view: View){
